@@ -40,8 +40,8 @@
 		9DB485F82026707900B497F2 /* Raleway-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 9DB485E32026707900B497F2 /* Raleway-Bold.ttf */; };
 		9DB485F92026707900B497F2 /* museosans-100.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 9DB485E42026707900B497F2 /* museosans-100.ttf */; };
 		9DB485FB2026729600B497F2 /* TrumpRunViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DB485FA2026729600B497F2 /* TrumpRunViewController.swift */; };
-		9DB485FD202674DF00B497F2 /* TrumpRunScene.sks in Resources */ = {isa = PBXBuildFile; fileRef = 9DB485FC202674DF00B497F2 /* TrumpRunScene.sks */; };
 		9DB485FF2026787600B497F2 /* PhosphateInline.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 9DB485FE2026782F00B497F2 /* PhosphateInline.ttf */; };
+		9DB486012026809800B497F2 /* TrumpRunScene.sks in Resources */ = {isa = PBXBuildFile; fileRef = 9DB486002026809800B497F2 /* TrumpRunScene.sks */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -101,8 +101,8 @@
 		9DB485E32026707900B497F2 /* Raleway-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Raleway-Bold.ttf"; sourceTree = "<group>"; };
 		9DB485E42026707900B497F2 /* museosans-100.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "museosans-100.ttf"; sourceTree = "<group>"; };
 		9DB485FA2026729600B497F2 /* TrumpRunViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrumpRunViewController.swift; sourceTree = "<group>"; };
-		9DB485FC202674DF00B497F2 /* TrumpRunScene.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; name = TrumpRunScene.sks; path = "../../Flappy Bird_Clone/Flappy Bird/TrumpRunScene.sks"; sourceTree = "<group>"; };
 		9DB485FE2026782F00B497F2 /* PhosphateInline.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = PhosphateInline.ttf; sourceTree = "<group>"; };
+		9DB486002026809800B497F2 /* TrumpRunScene.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = TrumpRunScene.sks; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -157,7 +157,7 @@
 				9DB4859920266E8B00B497F2 /* AppDelegate.swift */,
 				9DB4859B20266E8B00B497F2 /* GameScene.sks */,
 				9DB4859D20266E8B00B497F2 /* Actions.sks */,
-				9DB485FC202674DF00B497F2 /* TrumpRunScene.sks */,
+				9DB486002026809800B497F2 /* TrumpRunScene.sks */,
 				9DB4859F20266E8B00B497F2 /* GameScene.swift */,
 				9DB485A120266E8B00B497F2 /* GameViewController.swift */,
 				9DB485CD20266FC500B497F2 /* TrumpRunScene.swift */,
@@ -341,7 +341,7 @@
 				9DB485F12026707900B497F2 /* MuseoSans-700.otf in Resources */,
 				9DB4859C20266E8B00B497F2 /* GameScene.sks in Resources */,
 				9DB485E52026707900B497F2 /* Raleway-Heavy.ttf in Resources */,
-				9DB485FD202674DF00B497F2 /* TrumpRunScene.sks in Resources */,
+				9DB486012026809800B497F2 /* TrumpRunScene.sks in Resources */,
 				9DB485A720266E8B00B497F2 /* Assets.xcassets in Resources */,
 				9DB485AA20266E8B00B497F2 /* LaunchScreen.storyboard in Resources */,
 				9DB485EB2026707900B497F2 /* MuseoSans-900.otf in Resources */,
