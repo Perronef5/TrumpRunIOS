@@ -69,7 +69,7 @@ class TrumpRunScene: SKScene, SKPhysicsContactDelegate {
         var wallTexture = SKTexture()
 
         if score >= 15 && score < 30 {
-            if score == 14 {
+            if score == 15 {
             playNewStageSound()
             }
             let randomNumber = arc4random_uniform(4)
@@ -79,18 +79,18 @@ class TrumpRunScene: SKScene, SKPhysicsContactDelegate {
                 wallTexture = SKTexture(imageNamed: "brick_wall.png")
             }
         } else if score >= 30 && score < 45 {
-            if score == 29 {
+            if score == 30 {
             playNewStageSound()
             }
             wallTexture = SKTexture(imageNamed: "cactus.png")
 
         } else if score >= 45 && score < 60 {
-            if score == 44 {
+            if score == 45 {
             playNewStageSound()
             }
             wallTexture = SKTexture(imageNamed: "fence_wall.png")
         } else if score >= 60 {
-            if score == 59 {
+            if score == 60 {
             play60MarkSound()
             }
             wallTexture = SKTexture(imageNamed: "trump_wall.png")
