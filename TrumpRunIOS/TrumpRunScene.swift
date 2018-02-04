@@ -13,7 +13,7 @@ class TrumpRunScene: SKScene, SKPhysicsContactDelegate {
     
     var trump = SKSpriteNode()
     var scoreLabel = SKLabelNode(fontNamed:"Zero Velocity BRK")
-    var gameOverLabel = SKLabelNode(fontNamed:"Zero Velocity BRK")
+    var gameOverLabel = SKLabelNode(fontNamed:"Helvetica")
     var score = 0
     var timer = Timer()
     var gameStarted = false
@@ -151,6 +151,7 @@ class TrumpRunScene: SKScene, SKPhysicsContactDelegate {
             self.speed = 1
             self.removeAllChildren()
             setupGame()
+            trump.physicsBody?.isDynamic = true
         }
         
         
@@ -159,7 +160,7 @@ class TrumpRunScene: SKScene, SKPhysicsContactDelegate {
     func setupGame() {
   
         
-        let bgTexture = SKTexture(imageNamed: "bg.png")
+        let bgTexture = SKTexture(imageNamed: "desert_BG.png")
         
         let moveBGAnimation = SKAction.move(by: CGVector(dx: -bgTexture.size().width, dy: 0), duration: 7)
         let shiftBGAnimation = SKAction.move(by: CGVector(dx: bgTexture.size().width, dy: 0), duration: 0)
@@ -193,7 +194,7 @@ class TrumpRunScene: SKScene, SKPhysicsContactDelegate {
         
         trump = SKSpriteNode(texture: trumpTexture)
         
-        trump.position = CGPoint(x: self.frame.midX, y: -self.frame.height / 2.38)
+        trump.position = CGPoint(x: self.frame.midX, y: -self.frame.height / 3.5)
         
         trump.run(maketrumpFlap)
         
@@ -215,10 +216,10 @@ class TrumpRunScene: SKScene, SKPhysicsContactDelegate {
         
         let ground = SKSpriteNode()
         ground.color = UIColor.red
-        ground.physicsBody = SKPhysicsBody(edgeLoopFrom: CGRect(x: 0, y: 0 - UIScreen.main.bounds.height/2, width: self.frame.width, height: 10))
+        ground.physicsBody = SKPhysicsBody(edgeLoopFrom: CGRect(x: 0, y: 0, width: self.frame.width, height: 10))
         ground.physicsBody?.categoryBitMask = ColliderType.Ground.rawValue
         
-        ground.position = CGPoint(x: 0, y: 0 - UIScreen.main.bounds.height/2 + 70)
+        ground.position = CGPoint(x: 0, y: (-self.frame.height / 3.5) - 40)
         
         //        let ground = SKNode()
         //
