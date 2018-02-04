@@ -183,6 +183,7 @@
 		9DB4859820266E8B00B497F2 /* TrumpRunIOS */ = {
 			isa = PBXGroup;
 			children = (
+				9DB485AB20266E8B00B497F2 /* Info.plist */,
 				9DB485A620266E8B00B497F2 /* Assets.xcassets */,
 				9DB4859920266E8B00B497F2 /* AppDelegate.swift */,
 				9DB485A320266E8B00B497F2 /* Main.storyboard */,
@@ -318,7 +319,6 @@
 		9DB48624202728C900B497F2 /* Helper Files */ = {
 			isa = PBXGroup;
 			children = (
-				9DB485AB20266E8B00B497F2 /* Info.plist */,
 				1BFC3E68202682D500A1FEDF /* BaseViewController.swift */,
 				1B38B19220269B6F00319038 /* trump_running.gif */,
 				1B38B18D2026995D00319038 /* trump+gif.swift */,
