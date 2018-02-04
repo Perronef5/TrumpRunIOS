@@ -137,7 +137,6 @@
 		9DB4858D20266E8B00B497F2 = {
 			isa = PBXGroup;
 			children = (
-				1BFC3E6A20268DF700A1FEDF /* HelpViewController.swift */,
 				9DB4859820266E8B00B497F2 /* TrumpRunIOS */,
 				9DB485B320266E8C00B497F2 /* TrumpRunIOSTests */,
 				9DB485BE20266E8C00B497F2 /* TrumpRunIOSUITests */,
@@ -161,6 +160,7 @@
 				9DB485CF2026707900B497F2 /* Fonts */,
 				9DB4859920266E8B00B497F2 /* AppDelegate.swift */,
 				1BFC3E68202682D500A1FEDF /* BaseViewController.swift */,
+				1BFC3E6A20268DF700A1FEDF /* HelpViewController.swift */,
 				9DB4859B20266E8B00B497F2 /* GameScene.sks */,
 				9DB4859D20266E8B00B497F2 /* Actions.sks */,
 				9DB486002026809800B497F2 /* TrumpRunScene.sks */,
