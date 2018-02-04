@@ -10,7 +10,11 @@ import UIKit
 import SpriteKit
 import GameplayKit
 
-class GameViewController: UIViewController {
+class GameViewController: BaseViewController {
+    @IBOutlet weak var playButton: UIButton!
+    @IBOutlet weak var helpView: UIView!
+    
+    
     @IBAction func buttonAction(_ sender: Any) {
         switch ((sender as! UIButton).tag) {
         case 0:
@@ -18,6 +22,8 @@ class GameViewController: UIViewController {
             self.navigationController?.present(trumpRunViewController, animated: false, completion: nil)
             break
         case 1:
+            let helpViewControlller = UIStoryboard.viewControllerMain(identifier: "helpViewController") as! HelpViewController
+            self.navigationController?.present(helpViewControlller, animated: false, completion: nil)
             break
         default:
             break
@@ -42,6 +48,13 @@ class GameViewController: UIViewController {
             view.showsFPS = true
             view.showsNodeCount = true
         }
+        
+        prepare()
+    }
+    
+    func prepare() {
+        playButton.layer.cornerRadius = 6
+        helpView.layer.cornerRadius = helpView.frame.width/2
     }
 
     override var shouldAutorotate: Bool {

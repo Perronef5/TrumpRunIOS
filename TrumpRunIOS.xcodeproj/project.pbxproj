@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1BFC3E69202682D500A1FEDF /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BFC3E68202682D500A1FEDF /* BaseViewController.swift */; };
+		1BFC3E6B20268DF700A1FEDF /* HelpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BFC3E6A20268DF700A1FEDF /* HelpViewController.swift */; };
 		9DB4859A20266E8B00B497F2 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DB4859920266E8B00B497F2 /* AppDelegate.swift */; };
 		9DB4859C20266E8B00B497F2 /* GameScene.sks in Resources */ = {isa = PBXBuildFile; fileRef = 9DB4859B20266E8B00B497F2 /* GameScene.sks */; };
 		9DB4859E20266E8B00B497F2 /* Actions.sks in Resources */ = {isa = PBXBuildFile; fileRef = 9DB4859D20266E8B00B497F2 /* Actions.sks */; };
@@ -62,6 +64,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		1BFC3E68202682D500A1FEDF /* BaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
+		1BFC3E6A20268DF700A1FEDF /* HelpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HelpViewController.swift; sourceTree = "<group>"; };
 		9DB4859620266E8B00B497F2 /* TrumpRunIOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TrumpRunIOS.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9DB4859920266E8B00B497F2 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		9DB4859B20266E8B00B497F2 /* GameScene.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = GameScene.sks; sourceTree = "<group>"; };
@@ -133,6 +137,7 @@
 		9DB4858D20266E8B00B497F2 = {
 			isa = PBXGroup;
 			children = (
+				1BFC3E6A20268DF700A1FEDF /* HelpViewController.swift */,
 				9DB4859820266E8B00B497F2 /* TrumpRunIOS */,
 				9DB485B320266E8C00B497F2 /* TrumpRunIOSTests */,
 				9DB485BE20266E8C00B497F2 /* TrumpRunIOSUITests */,
@@ -155,6 +160,7 @@
 			children = (
 				9DB485CF2026707900B497F2 /* Fonts */,
 				9DB4859920266E8B00B497F2 /* AppDelegate.swift */,
+				1BFC3E68202682D500A1FEDF /* BaseViewController.swift */,
 				9DB4859B20266E8B00B497F2 /* GameScene.sks */,
 				9DB4859D20266E8B00B497F2 /* Actions.sks */,
 				9DB486002026809800B497F2 /* TrumpRunScene.sks */,
@@ -376,11 +382,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1BFC3E6B20268DF700A1FEDF /* HelpViewController.swift in Sources */,
 				9DB485FB2026729600B497F2 /* TrumpRunViewController.swift in Sources */,
 				9DB485A020266E8B00B497F2 /* GameScene.swift in Sources */,
 				9DB485CE20266FC600B497F2 /* TrumpRunScene.swift in Sources */,
 				9DB485A220266E8B00B497F2 /* GameViewController.swift in Sources */,
 				9DB4859A20266E8B00B497F2 /* AppDelegate.swift in Sources */,
+				1BFC3E69202682D500A1FEDF /* BaseViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
