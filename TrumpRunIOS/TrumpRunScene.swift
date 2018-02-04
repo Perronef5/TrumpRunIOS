@@ -64,7 +64,7 @@ class TrumpRunScene: SKScene, SKPhysicsContactDelegate {
         
         let wall2 = SKSpriteNode(texture: wallTexture)
         
-        let gapHeight = trump.size.height
+//        let gapHeight = trump.size.height
         
         wall2.position = CGPoint(x: self.frame.midX + self.frame.width, y: self.frame.midY - (wallTexture.size().height / 1.5) + wallOffset)
         

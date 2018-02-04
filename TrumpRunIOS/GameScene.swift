@@ -92,7 +92,7 @@ class GameScene: SKScene {
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
       
-        if let label = self.label {
+        if self.label != nil {
 //            label.run(SKAction.init(named: "Pulse")!, withKey: "fadeInOut")
         }
         
