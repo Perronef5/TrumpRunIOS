@@ -158,6 +158,7 @@
 			isa = PBXGroup;
 			children = (
 				9DB485CF2026707900B497F2 /* Fonts */,
+				1BFC3E6A20268DF700A1FEDF /* HelpViewController.swift */,
 				9DB4859920266E8B00B497F2 /* AppDelegate.swift */,
 				1BFC3E68202682D500A1FEDF /* BaseViewController.swift */,
 				1BFC3E6A20268DF700A1FEDF /* HelpViewController.swift */,
@@ -557,6 +558,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = GNTMNU45P5;
 				INFOPLIST_FILE = TrumpRunIOS/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.2;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = TrumpRun.TrumpRunIOS;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -572,6 +574,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = GNTMNU45P5;
 				INFOPLIST_FILE = TrumpRunIOS/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.2;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = TrumpRun.TrumpRunIOS;
 				PRODUCT_NAME = "$(TARGET_NAME)";
