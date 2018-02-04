@@ -17,6 +17,10 @@ class TrumpRunScene: SKScene, SKPhysicsContactDelegate {
     var score = 0
     var timer = Timer()
     var gameStarted = false
+    var pauseNode = SKSpriteNode()
+    var pauseButton = UIButton()
+    var pauseChildren: [SKNode] = []
+    var pauseButtonTouched = false
     
     var bg = SKSpriteNode()
     
@@ -31,6 +35,17 @@ class TrumpRunScene: SKScene, SKPhysicsContactDelegate {
     var gameOver = false
     var jumpCounter = 0
     var speedVariable: CGFloat = -2.0
+    
+    override func sceneDidLoad() {
+        
+        let pauseTexture = SKTexture(image: #imageLiteral(resourceName: "pause_button"))
+        pauseNode = SKSpriteNode(texture: pauseTexture )
+        
+        pauseNode.position = CGPoint(x: (-self.frame.width/2) + 80, y: (self.frame.height/2) - 80)
+        pauseNode.name = "pauseButton"
+        self.addChild(pauseNode)
+        
+    }
     
     @objc func makewalls() {
         
@@ -130,36 +145,128 @@ class TrumpRunScene: SKScene, SKPhysicsContactDelegate {
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         
-        if gameStarted == false {
-            timer = Timer.scheduledTimer(timeInterval: 3, target: self, selector: #selector(self.makewalls), userInfo: nil, repeats: true)
-            gameStarted = true
-        }
+      let touch:UITouch = touches.first! as UITouch
+      let positionInScene = touch.location(in: self)
+      let touchedNode = self.atPoint(positionInScene)
+      var resumeClicked = false
         
-        if gameOver == false {
-            if jumpCounter < 5 {
-            
+        if let name = touchedNode.name
+        {
+            if name == "pauseButton"
+            {
+                print("pause Button touched")
+                trump.physicsBody?.isDynamic = false
+                self.speed = 0
+                setupPauseScreen()
+                pauseButtonTouched = true
+            } else if name == "resumeButton" || name == "resumeLabel" {
                 trump.physicsBody?.isDynamic = true
-
-                trump.physicsBody!.velocity = CGVector(dx: 0, dy: 0)
-        
-                trump.physicsBody!.applyImpulse(CGVector(dx: 0, dy: 80))
-                jumpCounter += 1
+                removePauseScreen()
+                pauseButtonTouched = false
+                resumeClicked = true
+            } else if name == "restartButton" || name == "restartLabel" {
+                removePauseScreen()
+                gameOver = false
+                score = 0
+                self.children.filter { $0.name != "pauseButton" }.forEach { $0.removeFromParent() }
+                setupGame()
+                self.speed = 1
+                trump.physicsBody?.isDynamic = true
+                pauseButtonTouched = false
+                resumeClicked = true
+            } else if name == "quitButton" || name == "quitLabel" {
+                let vc = self.view?.window?.rootViewController
+                if let nav = vc?.navigationController {
+                    nav.popViewController(animated: true)
+                } else {
+                    vc?.dismiss(animated: false, completion: nil)
+                }
             }
-        } else {
-            gameOver = false
-            score = 0
-            self.speed = 1
-            self.removeAllChildren()
-            setupGame()
-            trump.physicsBody?.isDynamic = true
         }
+
+        if pauseButtonTouched == false && resumeClicked == false {
+            
+            if gameStarted == false {
+                timer = Timer.scheduledTimer(timeInterval: 3, target: self, selector: #selector(self.makewalls), userInfo: nil, repeats: true)
+                gameStarted = true
+            }
         
+            if gameOver == false {
+               
+                if jumpCounter < 5 {
+                
+                    trump.physicsBody?.isDynamic = true
+                    trump.physicsBody!.velocity = CGVector(dx: 0, dy: 0)
+                    trump.physicsBody!.applyImpulse(CGVector(dx: 0, dy: 80))
+                    jumpCounter += 1
+                }
+                
+            } else {
+                gameOver = false
+                score = 0
+                self.speed = 1
+                self.children.filter { $0.name != "pauseButton" }.forEach { $0.removeFromParent() }
+                setupGame()
+                trump.physicsBody?.isDynamic = true
+            }
+            
+        }
         
     }
     
-    func setupGame() {
-  
+    func setupPauseScreen() {
         
+        let restartButton = SKShapeNode(rect: CGRect(x: -self.frame.width/4, y: -70, width: self.frame.width/2, height: 140), cornerRadius: 6)
+        restartButton.fillColor = UIColor.black
+        restartButton.name = "restartButton"
+        
+        let restartLabel = SKLabelNode(fontNamed:"Helvetica Bold")
+        restartLabel.fontSize = 36
+        restartLabel.text = "RESTART"
+        restartLabel.position = CGPoint(x: 0, y: (restartButton.frame.height/2) - (restartLabel.frame.height/2) - 70)
+        restartLabel.name = "restartLabel"
+        
+        let resumeButton = SKShapeNode(rect: CGRect(x: -self.frame.width/4, y: restartButton.frame.height - 40, width: self.frame.width/2, height: 140), cornerRadius: 6)
+        resumeButton.fillColor = UIColor.black
+        resumeButton.name = "resumeButton"
+        
+        let resumeLabel = SKLabelNode(fontNamed:"Helvetica Bold")
+        resumeLabel.fontSize = 36
+        resumeLabel.text = "RESUME"
+        resumeLabel.position = CGPoint(x: 0, y: resumeButton.frame.height + (resumeButton.frame.height/2) - (resumeLabel.frame.height/2) - 40)
+        resumeLabel.name = "resumeLabel"
+        
+        let quitButton = SKShapeNode(rect: CGRect(x: -self.frame.width/4, y: -restartButton.frame.height - 40 - restartButton.frame.height/2, width: self.frame.width/2, height: 140), cornerRadius: 6)
+        quitButton.fillColor = UIColor.black
+        quitButton.name = "quitButton"
+        
+        let quitLabel = SKLabelNode(fontNamed:"Helvetica Bold")
+        quitLabel.fontSize = 36
+        quitLabel.text = "QUIT"
+        let y = -quitButton.frame.height - (quitButton.frame.height/2) + (quitLabel.frame.height/2)
+        quitLabel.position = CGPoint(x: 0, y: y)
+        quitLabel.name = "quitLabel"
+       
+        restartButton.addChild(restartLabel)
+        self.addChild(restartButton)
+        resumeButton.addChild(resumeLabel)
+        self.addChild(resumeButton)
+        quitButton.addChild(quitLabel)
+        self.addChild(quitButton)
+        
+        pauseChildren.append(restartButton)
+        pauseChildren.append(resumeButton)
+        pauseChildren.append(quitButton)
+
+    }
+    
+    func removePauseScreen() {
+        self.removeChildren(in: pauseChildren)
+        self.speed = 1
+        pauseChildren = []
+    }
+    
+    func setupGame() {
         let bgTexture = SKTexture(imageNamed: "desert_BG.png")
         
         let moveBGAnimation = SKAction.move(by: CGVector(dx: -bgTexture.size().width, dy: 0), duration: 7)
