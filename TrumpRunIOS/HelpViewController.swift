@@ -10,9 +10,13 @@ import UIKit
 
 class HelpViewController: BaseViewController {
 
+    @IBOutlet weak var gifView: UIImageView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
+        gifView.loadGif(name: "trump_running")
+        
         // Do any additional setup after loading the view.
     }
 

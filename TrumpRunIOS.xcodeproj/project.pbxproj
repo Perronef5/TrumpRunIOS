@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1B38B18E2026995D00319038 /* trump+gif.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B38B18D2026995D00319038 /* trump+gif.swift */; };
+		1B38B19320269B6F00319038 /* trump_running.gif in Resources */ = {isa = PBXBuildFile; fileRef = 1B38B19220269B6F00319038 /* trump_running.gif */; };
 		1BFC3E69202682D500A1FEDF /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BFC3E68202682D500A1FEDF /* BaseViewController.swift */; };
 		1BFC3E6B20268DF700A1FEDF /* HelpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BFC3E6A20268DF700A1FEDF /* HelpViewController.swift */; };
 		9DB4859A20266E8B00B497F2 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DB4859920266E8B00B497F2 /* AppDelegate.swift */; };
@@ -64,6 +66,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		1B38B18D2026995D00319038 /* trump+gif.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "trump+gif.swift"; sourceTree = "<group>"; };
+		1B38B19220269B6F00319038 /* trump_running.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = trump_running.gif; sourceTree = "<group>"; };
 		1BFC3E68202682D500A1FEDF /* BaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
 		1BFC3E6A20268DF700A1FEDF /* HelpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HelpViewController.swift; sourceTree = "<group>"; };
 		9DB4859620266E8B00B497F2 /* TrumpRunIOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TrumpRunIOS.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -158,7 +162,6 @@
 			isa = PBXGroup;
 			children = (
 				9DB485CF2026707900B497F2 /* Fonts */,
-				1BFC3E6A20268DF700A1FEDF /* HelpViewController.swift */,
 				9DB4859920266E8B00B497F2 /* AppDelegate.swift */,
 				1BFC3E68202682D500A1FEDF /* BaseViewController.swift */,
 				1BFC3E6A20268DF700A1FEDF /* HelpViewController.swift */,
@@ -170,9 +173,11 @@
 				9DB485CD20266FC500B497F2 /* TrumpRunScene.swift */,
 				9DB485A320266E8B00B497F2 /* Main.storyboard */,
 				9DB485A620266E8B00B497F2 /* Assets.xcassets */,
+				1B38B19220269B6F00319038 /* trump_running.gif */,
 				9DB485A820266E8B00B497F2 /* LaunchScreen.storyboard */,
 				9DB485AB20266E8B00B497F2 /* Info.plist */,
 				9DB485FA2026729600B497F2 /* TrumpRunViewController.swift */,
+				1B38B18D2026995D00319038 /* trump+gif.swift */,
 			);
 			path = TrumpRunIOS;
 			sourceTree = "<group>";
@@ -346,6 +351,7 @@
 				9DB485E72026707900B497F2 /* Raleway-Medium.ttf in Resources */,
 				9DB485EF2026707900B497F2 /* MuseoSans-300.otf in Resources */,
 				9DB485F12026707900B497F2 /* MuseoSans-700.otf in Resources */,
+				1B38B19320269B6F00319038 /* trump_running.gif in Resources */,
 				9DB4859C20266E8B00B497F2 /* GameScene.sks in Resources */,
 				9DB485E52026707900B497F2 /* Raleway-Heavy.ttf in Resources */,
 				9DB486012026809800B497F2 /* TrumpRunScene.sks in Resources */,
@@ -386,6 +392,7 @@
 				1BFC3E6B20268DF700A1FEDF /* HelpViewController.swift in Sources */,
 				9DB485FB2026729600B497F2 /* TrumpRunViewController.swift in Sources */,
 				9DB485A020266E8B00B497F2 /* GameScene.swift in Sources */,
+				1B38B18E2026995D00319038 /* trump+gif.swift in Sources */,
 				9DB485CE20266FC600B497F2 /* TrumpRunScene.swift in Sources */,
 				9DB485A220266E8B00B497F2 /* GameViewController.swift in Sources */,
 				9DB4859A20266E8B00B497F2 /* AppDelegate.swift in Sources */,
