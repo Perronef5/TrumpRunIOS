@@ -13,7 +13,10 @@ import GameplayKit
 class GameViewController: BaseViewController {
     @IBOutlet weak var playButton: UIButton!
     @IBOutlet weak var helpView: UIView!
+    @IBOutlet weak var highscoreLabel: UILabel!
+    var currentScore = 0
     
+    var highScore = UserDefaults().integer(forKey: "HIGHSCORE")
     
     @IBAction func buttonAction(_ sender: Any) {
         switch ((sender as! UIButton).tag) {
@@ -28,6 +31,10 @@ class GameViewController: BaseViewController {
         default:
             break
         }
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        setHighScore()
     }
     
     override func viewDidLoad() {
@@ -45,11 +52,12 @@ class GameViewController: BaseViewController {
             
             view.ignoresSiblingOrder = true
             
-            view.showsFPS = true
-            view.showsNodeCount = true
+//            view.showsFPS = true
+//            view.showsNodeCount = true
         }
         
         prepare()
+        setHighScore()
     }
     
     func prepare() {
@@ -76,5 +84,10 @@ class GameViewController: BaseViewController {
 
     override var prefersStatusBarHidden: Bool {
         return true
+    }
+    
+    func setHighScore() {
+        highScore = UserDefaults().integer(forKey: "HIGHSCORE")
+        highscoreLabel.text = "HIGHSCORE: \(String(highScore))"
     }
 }

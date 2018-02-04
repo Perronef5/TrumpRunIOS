@@ -8,12 +8,15 @@
 
 import SpriteKit
 import GameplayKit
+import AudioToolbox
 
 class TrumpRunScene: SKScene, SKPhysicsContactDelegate {
     
     var trump = SKSpriteNode()
     var scoreLabel = SKLabelNode(fontNamed:"PhosphateInline")
-    var gameOverLabel = SKLabelNode(fontNamed:"Helvetica")
+    var gameOverLabel = SKLabelNode(fontNamed:"Helvetica Bold")
+    var highScoreLabel = SKLabelNode(fontNamed:"Helvetica Bold")
+    var tapToPlayLabel = SKLabelNode(fontNamed:"Helvetica Bold")
     var score = 0
     var timer = Timer()
     var gameStarted = false
@@ -21,6 +24,7 @@ class TrumpRunScene: SKScene, SKPhysicsContactDelegate {
     var pauseButton = UIButton()
     var pauseChildren: [SKNode] = []
     var pauseButtonTouched = false
+    var highScore = UserDefaults().integer(forKey: "HIGHSCORE")
     
     var bg = SKSpriteNode()
     
@@ -34,7 +38,8 @@ class TrumpRunScene: SKScene, SKPhysicsContactDelegate {
     
     var gameOver = false
     var jumpCounter = 0
-    var speedVariable: CGFloat = -2.0
+    var speedVariable: CGFloat = 100.0
+    var creationRateVariable: CGFloat = -2.0
     
     override func sceneDidLoad() {
         
@@ -49,18 +54,49 @@ class TrumpRunScene: SKScene, SKPhysicsContactDelegate {
     
     @objc func makewalls() {
         
-        let movewalls = SKAction.move(by: CGVector(dx: speedVariable * self.frame.width, dy: 0), duration: TimeInterval(self.frame.width / 100))
+        let movewalls = SKAction.move(by: CGVector(dx: creationRateVariable * self.frame.width, dy: 0), duration: TimeInterval(self.frame.width / speedVariable))
         let removewalls = SKAction.removeFromParent()
         let moveAndRemovewalls = SKAction.sequence([movewalls, removewalls])
         
         
-        let movementAmount = arc4random() % UInt32(self.frame.height / 2)
+        let movementAmount = (arc4random() % UInt32(self.frame.height / 2)) + 50
+//        let movementAmount = arc4random_uniform(5) + 2
+
         
         let wallOffset = CGFloat(movementAmount) - self.frame.height / 4
         
 //        let wallTexture = SKTexture(imageNamed: "wall_wall.png")
-        
-        let wallTexture = SKTexture(imageNamed: "brick_wall.png")
+        var wallTexture = SKTexture()
+
+        if score >= 15 && score < 30 {
+            if score == 14 {
+            playNewStageSound()
+            }
+            let randomNumber = arc4random_uniform(4)
+            if randomNumber > 0 {
+                wallTexture = SKTexture(imageNamed: "brick_wall_wspikes.png")
+            } else {
+                wallTexture = SKTexture(imageNamed: "brick_wall.png")
+            }
+        } else if score >= 30 && score < 45 {
+            if score == 29 {
+            playNewStageSound()
+            }
+            wallTexture = SKTexture(imageNamed: "cactus.png")
+
+        } else if score >= 45 && score < 60 {
+            if score == 44 {
+            playNewStageSound()
+            }
+            wallTexture = SKTexture(imageNamed: "fence_wall.png")
+        } else if score >= 60 {
+            if score == 59 {
+            play60MarkSound()
+            }
+            wallTexture = SKTexture(imageNamed: "trump_wall.png")
+        } else {
+            wallTexture = SKTexture(imageNamed: "brick_wall.png")
+        }
         
         let wall2 = SKSpriteNode(texture: wallTexture)
         
@@ -108,22 +144,36 @@ class TrumpRunScene: SKScene, SKPhysicsContactDelegate {
             
             score += 1
             scoreLabel.text = String(score)
-            speedVariable -= 0.5
+            speedVariable += 40.0
+//            creationRateVariable -= 0.01
             
         } else if contact.bodyA.categoryBitMask == ColliderType.Ground.rawValue || contact.bodyB.categoryBitMask == ColliderType.Ground.rawValue {
             jumpCounter = 0
         } else {
-            
+            if score > highScore {
+                playHighScoreSound()
+            } else {
+                playDeathSound()
+            }
             self.speed = 0
             jumpCounter = 0
-            speedVariable = -2.0
+            speedVariable = 100.0
+            creationRateVariable = -2.0
             gameOver = true
             gameStarted = false
             timer.invalidate()
-            gameOverLabel.fontSize = 30
+            saveHighScore()
+            
+            highScoreLabel.fontSize = 36
+            highScoreLabel.text = "HIGHSCORE: \(String(highScore))"
+            highScoreLabel.position = CGPoint(x: self.frame.midX, y: self.frame.midY + 60)
+            highScoreLabel.fontColor = UIColor.white
+            self.insertChild(highScoreLabel, at: self.children.count - 1)
+        
+            gameOverLabel.fontSize = 36
             gameOverLabel.text = "Game Over. Tap to play again."
             gameOverLabel.position = CGPoint(x: self.frame.midX, y: self.frame.midY)
-            gameOverLabel.fontColor = UIColor.black
+            gameOverLabel.fontColor = UIColor.white
             self.insertChild(gameOverLabel, at: self.children.count - 1)
             
         }
@@ -150,6 +200,9 @@ class TrumpRunScene: SKScene, SKPhysicsContactDelegate {
       let touchedNode = self.atPoint(positionInScene)
       var resumeClicked = false
         
+      let array = [tapToPlayLabel]
+      self.removeChildren(in: array)
+        
         if let name = touchedNode.name
         {
             if name == "pauseButton"
@@ -167,6 +220,7 @@ class TrumpRunScene: SKScene, SKPhysicsContactDelegate {
             } else if name == "restartButton" || name == "restartLabel" {
                 removePauseScreen()
                 gameOver = false
+                saveHighScore()
                 score = 0
                 self.children.filter { $0.name != "pauseButton" }.forEach { $0.removeFromParent() }
                 setupGame()
@@ -203,6 +257,7 @@ class TrumpRunScene: SKScene, SKPhysicsContactDelegate {
                 
             } else {
                 gameOver = false
+                saveHighScore()
                 score = 0
                 self.speed = 1
                 self.children.filter { $0.name != "pauseButton" }.forEach { $0.removeFromParent() }
@@ -248,12 +303,12 @@ class TrumpRunScene: SKScene, SKPhysicsContactDelegate {
         quitLabel.name = "quitLabel"
        
         restartButton.addChild(restartLabel)
-        self.addChild(restartButton)
+        self.insertChild(restartButton, at: self.children.count - 1)
         resumeButton.addChild(resumeLabel)
-        self.addChild(resumeButton)
+        self.insertChild(resumeButton, at: self.children.count - 1)
         quitButton.addChild(quitLabel)
-        self.addChild(quitButton)
-        
+        self.insertChild(quitButton, at: self.children.count - 1)
+
         pauseChildren.append(restartButton)
         pauseChildren.append(resumeButton)
         pauseChildren.append(quitButton)
@@ -349,12 +404,108 @@ class TrumpRunScene: SKScene, SKPhysicsContactDelegate {
         scoreLabel.position = CGPoint(x: self.frame.midX, y: self.frame.height / 2 - 200)
         scoreLabel.fontColor = UIColor.black
         self.addChild(scoreLabel)
+        
+        tapToPlayLabel.fontSize = 36
+        tapToPlayLabel.text = "Tap to play..."
+        tapToPlayLabel.position = CGPoint(x: self.frame.midX, y: self.frame.midY + 20)
+        tapToPlayLabel.fontColor = UIColor.white
+        tapToPlayLabel.name = "tapToPlay"
+        self.addChild(tapToPlayLabel)
     }
     
     
     
     override func update(_ currentTime: TimeInterval) {
         // Called before each frame is rendered
+    }
+    
+    func saveHighScore() {
+        if score > highScore {
+            print(score)
+            UserDefaults.standard.set(score, forKey: "HIGHSCORE")
+            highScore = UserDefaults().integer(forKey: "HIGHSCORE")
+        }
+    }
+    
+    func playDeathSound()  {
+        var soundURL: NSURL?
+        var soundID:SystemSoundID = 0
+        let filePath = Bundle.main.path(forResource: "You're Fired", ofType: "wav")
+        let filePath2 = Bundle.main.path(forResource: "China", ofType: "mp3")
+        let filePath3 = Bundle.main.path(forResource: "You're Finished", ofType: "wav")
+
+        let randomNumber = arc4random_uniform(3)
+        
+        if randomNumber == 0 {
+            soundURL = NSURL(fileURLWithPath: filePath!)
+        } else if randomNumber == 1 {
+            soundURL = NSURL(fileURLWithPath: filePath2!)
+        } else {
+            soundURL = NSURL(fileURLWithPath: filePath3!)
+        }
+
+        AudioServicesCreateSystemSoundID(soundURL!, &soundID)
+        AudioServicesPlaySystemSound(soundID)
+    }
+    
+    func playNewStageSound()  {
+        var soundURL: NSURL?
+        var soundID:SystemSoundID = 0
+        let filePath = Bundle.main.path(forResource: "America Great", ofType: "wav")
+        let filePath2 = Bundle.main.path(forResource: "Greatest President", ofType: "wav")
+        let filePath3 = Bundle.main.path(forResource: "mexico_pays2", ofType: "wav")
+
+        let randomNumber = arc4random_uniform(3)
+        
+        if randomNumber == 0 {
+            soundURL = NSURL(fileURLWithPath: filePath!)
+        } else if randomNumber == 1 {
+            soundURL = NSURL(fileURLWithPath: filePath2!)
+        } else {
+            soundURL = NSURL(fileURLWithPath: filePath3!)
+        }
+        
+        AudioServicesCreateSystemSoundID(soundURL!, &soundID)
+        AudioServicesPlaySystemSound(soundID)
+    }
+    
+    func playHighScoreSound()  {
+        var soundURL: NSURL?
+        var soundID:SystemSoundID = 0
+        let filePath = Bundle.main.path(forResource: "congratulations", ofType: "mp3")
+        let filePath2 = Bundle.main.path(forResource: "Mexico Pays", ofType: "wav")
+        let filePath3 = Bundle.main.path(forResource: "Bored Winning", ofType: "wav")
+        
+        let randomNumber = arc4random_uniform(3)
+        
+        if randomNumber == 0 {
+            soundURL = NSURL(fileURLWithPath: filePath!)
+        } else if randomNumber == 1 {
+            soundURL = NSURL(fileURLWithPath: filePath2!)
+        } else {
+            soundURL = NSURL(fileURLWithPath: filePath3!)
+        }
+
+        AudioServicesCreateSystemSoundID(soundURL!, &soundID)
+        AudioServicesPlaySystemSound(soundID)
+    }
+    
+    func play60MarkSound()  {
+        var soundURL: NSURL?
+        var soundID:SystemSoundID = 0
+        let filePath = Bundle.main.path(forResource: "I'm really rich", ofType: "mp3")
+        let filePath2 = Bundle.main.path(forResource: "Rich_2", ofType: "wav")
+        
+        let randomNumber = arc4random_uniform(2)
+        
+        if randomNumber == 0 {
+            soundURL = NSURL(fileURLWithPath: filePath!)
+        } else {
+            soundURL = NSURL(fileURLWithPath: filePath2!)
+        }
+        
+        AudioServicesCreateSystemSoundID(soundURL!, &soundID)
+        AudioServicesPlaySystemSound(soundID)
     }
     
     

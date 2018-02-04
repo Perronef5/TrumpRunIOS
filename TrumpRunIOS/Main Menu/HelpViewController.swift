@@ -10,11 +10,13 @@ import UIKit
 
 class HelpViewController: BaseViewController {
 
+    @IBOutlet weak var rulesView: UIView!
     @IBOutlet weak var gifView: UIImageView!
     
     @IBOutlet weak var helpbackButton: UIButton!
-   
     @IBOutlet weak var helpbackButton_2: UIButton!
+    @IBOutlet weak var resetHighScoreButton: UIButton!
+    
     
     @IBAction func buttonAction(_ sender: Any) {
         
@@ -35,7 +37,9 @@ class HelpViewController: BaseViewController {
                 self.dismiss(animated: true, completion: nil)
             }
             break
-            
+        case 2:
+            UserDefaults.standard.set(0, forKey: "HIGHSCORE")
+            break
         default:
             break
             
@@ -48,8 +52,25 @@ class HelpViewController: BaseViewController {
         super.viewDidLoad()
         
         gifView.loadGif(name: "trump_running")
+        prepare()
         
         // Do any additional setup after loading the view.
+    }
+    
+    func prepare() {
+        helpbackButton_2.layer.cornerRadius = 6.0
+        helpbackButton_2.layer.shadowColor = UIColorFromRGB(rgbValue: 0x212121).cgColor
+        helpbackButton_2.layer.shadowOpacity = 0.3
+        helpbackButton_2.layer.shadowOffset = CGSize(width: 3.0, height: 3.0)
+        
+        rulesView.layer.shadowColor = UIColorFromRGB(rgbValue: 0x212121).cgColor
+        rulesView.layer.shadowOpacity = 0.3
+        rulesView.layer.shadowOffset = CGSize(width: 3.0, height: 3.0)
+        
+        resetHighScoreButton.layer.cornerRadius = 6.0
+        resetHighScoreButton.layer.shadowColor = UIColorFromRGB(rgbValue: 0x212121).cgColor
+        resetHighScoreButton.layer.shadowOpacity = 0.3
+        resetHighScoreButton.layer.shadowOffset = CGSize(width: 3.0, height: 3.0)
     }
 
     override func didReceiveMemoryWarning() {

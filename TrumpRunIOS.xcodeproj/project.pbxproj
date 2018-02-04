@@ -46,6 +46,17 @@
 		9DB485FB2026729600B497F2 /* TrumpRunViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DB485FA2026729600B497F2 /* TrumpRunViewController.swift */; };
 		9DB485FF2026787600B497F2 /* PhosphateInline.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 9DB485FE2026782F00B497F2 /* PhosphateInline.ttf */; };
 		9DB486012026809800B497F2 /* TrumpRunScene.sks in Resources */ = {isa = PBXBuildFile; fileRef = 9DB486002026809800B497F2 /* TrumpRunScene.sks */; };
+		9DB4860920271B5700B497F2 /* You're Fired.wav in Resources */ = {isa = PBXBuildFile; fileRef = 9DB4860520271B5600B497F2 /* You're Fired.wav */; };
+		9DB4860A20271B5700B497F2 /* America Great.wav in Resources */ = {isa = PBXBuildFile; fileRef = 9DB4860620271B5600B497F2 /* America Great.wav */; };
+		9DB4860B20271B5700B497F2 /* congratulations.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 9DB4860720271B5600B497F2 /* congratulations.mp3 */; };
+		9DB4860C20271B5700B497F2 /* I'm really rich.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 9DB4860820271B5700B497F2 /* I'm really rich.mp3 */; };
+		9DB4861120271D6D00B497F2 /* China.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 9DB4860F20271D6C00B497F2 /* China.mp3 */; };
+		9DB4861220271D6D00B497F2 /* Bored Winning.wav in Resources */ = {isa = PBXBuildFile; fileRef = 9DB4861020271D6C00B497F2 /* Bored Winning.wav */; };
+		9DB4861420271D7400B497F2 /* Greatest President.wav in Resources */ = {isa = PBXBuildFile; fileRef = 9DB4861320271D7400B497F2 /* Greatest President.wav */; };
+		9DB4861620271D7C00B497F2 /* Mexico Pays.wav in Resources */ = {isa = PBXBuildFile; fileRef = 9DB4861520271D7C00B497F2 /* Mexico Pays.wav */; };
+		9DB4861820271D8300B497F2 /* Rich_2.wav in Resources */ = {isa = PBXBuildFile; fileRef = 9DB4861720271D8300B497F2 /* Rich_2.wav */; };
+		9DB4861A20271D8A00B497F2 /* You're Finished.wav in Resources */ = {isa = PBXBuildFile; fileRef = 9DB4861920271D8A00B497F2 /* You're Finished.wav */; };
+		9DB4861C2027218200B497F2 /* mexico_pays2.wav in Resources */ = {isa = PBXBuildFile; fileRef = 9DB4861B2027218200B497F2 /* mexico_pays2.wav */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -111,6 +122,17 @@
 		9DB485FA2026729600B497F2 /* TrumpRunViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrumpRunViewController.swift; sourceTree = "<group>"; };
 		9DB485FE2026782F00B497F2 /* PhosphateInline.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = PhosphateInline.ttf; sourceTree = "<group>"; };
 		9DB486002026809800B497F2 /* TrumpRunScene.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = TrumpRunScene.sks; sourceTree = "<group>"; };
+		9DB4860520271B5600B497F2 /* You're Fired.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = "You're Fired.wav"; sourceTree = "<group>"; };
+		9DB4860620271B5600B497F2 /* America Great.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = "America Great.wav"; sourceTree = "<group>"; };
+		9DB4860720271B5600B497F2 /* congratulations.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = congratulations.mp3; sourceTree = "<group>"; };
+		9DB4860820271B5700B497F2 /* I'm really rich.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "I'm really rich.mp3"; sourceTree = "<group>"; };
+		9DB4860F20271D6C00B497F2 /* China.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = China.mp3; sourceTree = "<group>"; };
+		9DB4861020271D6C00B497F2 /* Bored Winning.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = "Bored Winning.wav"; sourceTree = "<group>"; };
+		9DB4861320271D7400B497F2 /* Greatest President.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = "Greatest President.wav"; sourceTree = "<group>"; };
+		9DB4861520271D7C00B497F2 /* Mexico Pays.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = "Mexico Pays.wav"; sourceTree = "<group>"; };
+		9DB4861720271D8300B497F2 /* Rich_2.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = Rich_2.wav; sourceTree = "<group>"; };
+		9DB4861920271D8A00B497F2 /* You're Finished.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = "You're Finished.wav"; sourceTree = "<group>"; };
+		9DB4861B2027218200B497F2 /* mexico_pays2.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = mexico_pays2.wav; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -161,23 +183,16 @@
 		9DB4859820266E8B00B497F2 /* TrumpRunIOS */ = {
 			isa = PBXGroup;
 			children = (
-				9DB485CF2026707900B497F2 /* Fonts */,
-				9DB4859920266E8B00B497F2 /* AppDelegate.swift */,
-				1BFC3E68202682D500A1FEDF /* BaseViewController.swift */,
-				1BFC3E6A20268DF700A1FEDF /* HelpViewController.swift */,
-				9DB4859B20266E8B00B497F2 /* GameScene.sks */,
-				9DB4859D20266E8B00B497F2 /* Actions.sks */,
-				9DB486002026809800B497F2 /* TrumpRunScene.sks */,
-				9DB4859F20266E8B00B497F2 /* GameScene.swift */,
-				9DB485A120266E8B00B497F2 /* GameViewController.swift */,
-				9DB485CD20266FC500B497F2 /* TrumpRunScene.swift */,
-				9DB485A320266E8B00B497F2 /* Main.storyboard */,
 				9DB485A620266E8B00B497F2 /* Assets.xcassets */,
-				1B38B19220269B6F00319038 /* trump_running.gif */,
+				9DB4859920266E8B00B497F2 /* AppDelegate.swift */,
+				9DB485A320266E8B00B497F2 /* Main.storyboard */,
 				9DB485A820266E8B00B497F2 /* LaunchScreen.storyboard */,
-				9DB485AB20266E8B00B497F2 /* Info.plist */,
-				9DB485FA2026729600B497F2 /* TrumpRunViewController.swift */,
-				1B38B18D2026995D00319038 /* trump+gif.swift */,
+				9DB4859D20266E8B00B497F2 /* Actions.sks */,
+				9DB486222027288C00B497F2 /* Main Menu */,
+				9DB486212027283300B497F2 /* TrumpRush Play */,
+				9DB4860420271B2900B497F2 /* Sounds */,
+				9DB485CF2026707900B497F2 /* Fonts */,
+				9DB48624202728C900B497F2 /* Helper Files */,
 			);
 			path = TrumpRunIOS;
 			sourceTree = "<group>";
@@ -227,6 +242,88 @@
 				9DB485E42026707900B497F2 /* museosans-100.ttf */,
 			);
 			path = Fonts;
+			sourceTree = "<group>";
+		};
+		9DB4860420271B2900B497F2 /* Sounds */ = {
+			isa = PBXGroup;
+			children = (
+				9DB486202027282200B497F2 /* 60 Mark Sounds */,
+				9DB4861F2027280A00B497F2 /* Highscore Sounds */,
+				9DB4861E202727ED00B497F2 /* New Stage Sounds */,
+				9DB4861D202727CD00B497F2 /* Dead Sounds */,
+			);
+			path = Sounds;
+			sourceTree = "<group>";
+		};
+		9DB4861D202727CD00B497F2 /* Dead Sounds */ = {
+			isa = PBXGroup;
+			children = (
+				9DB4860520271B5600B497F2 /* You're Fired.wav */,
+				9DB4860F20271D6C00B497F2 /* China.mp3 */,
+				9DB4861920271D8A00B497F2 /* You're Finished.wav */,
+			);
+			path = "Dead Sounds";
+			sourceTree = "<group>";
+		};
+		9DB4861E202727ED00B497F2 /* New Stage Sounds */ = {
+			isa = PBXGroup;
+			children = (
+				9DB4861320271D7400B497F2 /* Greatest President.wav */,
+				9DB4860620271B5600B497F2 /* America Great.wav */,
+				9DB4861B2027218200B497F2 /* mexico_pays2.wav */,
+			);
+			path = "New Stage Sounds";
+			sourceTree = "<group>";
+		};
+		9DB4861F2027280A00B497F2 /* Highscore Sounds */ = {
+			isa = PBXGroup;
+			children = (
+				9DB4861520271D7C00B497F2 /* Mexico Pays.wav */,
+				9DB4860720271B5600B497F2 /* congratulations.mp3 */,
+				9DB4861020271D6C00B497F2 /* Bored Winning.wav */,
+			);
+			path = "Highscore Sounds";
+			sourceTree = "<group>";
+		};
+		9DB486202027282200B497F2 /* 60 Mark Sounds */ = {
+			isa = PBXGroup;
+			children = (
+				9DB4861720271D8300B497F2 /* Rich_2.wav */,
+				9DB4860820271B5700B497F2 /* I'm really rich.mp3 */,
+			);
+			path = "60 Mark Sounds";
+			sourceTree = "<group>";
+		};
+		9DB486212027283300B497F2 /* TrumpRush Play */ = {
+			isa = PBXGroup;
+			children = (
+				9DB485FA2026729600B497F2 /* TrumpRunViewController.swift */,
+				9DB485CD20266FC500B497F2 /* TrumpRunScene.swift */,
+				9DB486002026809800B497F2 /* TrumpRunScene.sks */,
+			);
+			path = "TrumpRush Play";
+			sourceTree = "<group>";
+		};
+		9DB486222027288C00B497F2 /* Main Menu */ = {
+			isa = PBXGroup;
+			children = (
+				9DB4859B20266E8B00B497F2 /* GameScene.sks */,
+				1BFC3E6A20268DF700A1FEDF /* HelpViewController.swift */,
+				9DB485A120266E8B00B497F2 /* GameViewController.swift */,
+				9DB4859F20266E8B00B497F2 /* GameScene.swift */,
+			);
+			path = "Main Menu";
+			sourceTree = "<group>";
+		};
+		9DB48624202728C900B497F2 /* Helper Files */ = {
+			isa = PBXGroup;
+			children = (
+				9DB485AB20266E8B00B497F2 /* Info.plist */,
+				1BFC3E68202682D500A1FEDF /* BaseViewController.swift */,
+				1B38B19220269B6F00319038 /* trump_running.gif */,
+				1B38B18D2026995D00319038 /* trump+gif.swift */,
+			);
+			path = "Helper Files";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -336,12 +433,15 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9DB4861A20271D8A00B497F2 /* You're Finished.wav in Resources */,
+				9DB4860A20271B5700B497F2 /* America Great.wav in Resources */,
 				9DB485F42026707900B497F2 /* museosans-700.ttf in Resources */,
 				9DB485F02026707900B497F2 /* OFL.txt in Resources */,
 				9DB485E82026707900B497F2 /* Raleway-SemiBold.ttf in Resources */,
 				9DB485F92026707900B497F2 /* museosans-100.ttf in Resources */,
 				9DB485F72026707900B497F2 /* museosans-300.ttf in Resources */,
 				9DB485E92026707900B497F2 /* museosans-900.ttf in Resources */,
+				9DB4860C20271B5700B497F2 /* I'm really rich.mp3 in Resources */,
 				9DB485FF2026787600B497F2 /* PhosphateInline.ttf in Resources */,
 				9DB485EE2026707900B497F2 /* zerovelo.ttf in Resources */,
 				9DB485A520266E8B00B497F2 /* Main.storyboard in Resources */,
@@ -349,18 +449,26 @@
 				9DB485F32026707900B497F2 /* Raleway-Thin.ttf in Resources */,
 				9DB485ED2026707900B497F2 /* Raleway-Light.ttf in Resources */,
 				9DB485E72026707900B497F2 /* Raleway-Medium.ttf in Resources */,
+				9DB4860B20271B5700B497F2 /* congratulations.mp3 in Resources */,
 				9DB485EF2026707900B497F2 /* MuseoSans-300.otf in Resources */,
 				9DB485F12026707900B497F2 /* MuseoSans-700.otf in Resources */,
 				1B38B19320269B6F00319038 /* trump_running.gif in Resources */,
+				9DB4861C2027218200B497F2 /* mexico_pays2.wav in Resources */,
 				9DB4859C20266E8B00B497F2 /* GameScene.sks in Resources */,
 				9DB485E52026707900B497F2 /* Raleway-Heavy.ttf in Resources */,
 				9DB486012026809800B497F2 /* TrumpRunScene.sks in Resources */,
+				9DB4860920271B5700B497F2 /* You're Fired.wav in Resources */,
 				9DB485A720266E8B00B497F2 /* Assets.xcassets in Resources */,
+				9DB4861120271D6D00B497F2 /* China.mp3 in Resources */,
 				9DB485AA20266E8B00B497F2 /* LaunchScreen.storyboard in Resources */,
 				9DB485EB2026707900B497F2 /* MuseoSans-900.otf in Resources */,
+				9DB4861820271D8300B497F2 /* Rich_2.wav in Resources */,
 				9DB485F52026707900B497F2 /* 6809-chargen.ttf in Resources */,
 				9DB485E62026707900B497F2 /* Raleway-ExtraLight.ttf in Resources */,
+				9DB4861220271D6D00B497F2 /* Bored Winning.wav in Resources */,
 				9DB485EC2026707900B497F2 /* Raleway-Regular.ttf in Resources */,
+				9DB4861620271D7C00B497F2 /* Mexico Pays.wav in Resources */,
+				9DB4861420271D7400B497F2 /* Greatest President.wav in Resources */,
 				9DB485F22026707900B497F2 /* museosans-500.ttf in Resources */,
 				9DB4859E20266E8B00B497F2 /* Actions.sks in Resources */,
 				9DB485F82026707900B497F2 /* Raleway-Bold.ttf in Resources */,
