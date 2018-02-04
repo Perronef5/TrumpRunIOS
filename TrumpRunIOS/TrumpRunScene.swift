@@ -12,7 +12,7 @@ import GameplayKit
 class TrumpRunScene: SKScene, SKPhysicsContactDelegate {
     
     var trump = SKSpriteNode()
-    var scoreLabel = SKLabelNode(fontNamed:"Zero Velocity BRK")
+    var scoreLabel = SKLabelNode(fontNamed:"PhosphateInline")
     var gameOverLabel = SKLabelNode(fontNamed:"Helvetica")
     var score = 0
     var timer = Timer()
@@ -237,7 +237,7 @@ class TrumpRunScene: SKScene, SKPhysicsContactDelegate {
         self.addChild(ground)
         
         //        scoreLabel.fontName = "6809-chargen"
-        scoreLabel.fontSize = 80
+        scoreLabel.fontSize = 100
         scoreLabel.text = "0"
         scoreLabel.position = CGPoint(x: self.frame.midX, y: self.frame.height / 2 - 200)
         scoreLabel.fontColor = UIColor.black

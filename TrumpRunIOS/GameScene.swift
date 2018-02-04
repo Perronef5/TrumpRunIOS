@@ -13,6 +13,33 @@ class GameScene: SKScene {
     
     private var label : SKLabelNode?
     private var spinnyNode : SKShapeNode?
+    var bg = SKSpriteNode()
+    
+    
+    override func sceneDidLoad() {
+        let bgTexture = SKTexture(imageNamed: "desert_BG.png")
+        bg = SKSpriteNode(texture: bgTexture)
+//        bg.position = CGPoint(x: bgTexture.size().width, y: self.frame.midY)
+        bg.size.height = self.frame.height
+        
+        let effectsNode = SKEffectNode()
+        let filter = CIFilter(name: "CIGaussianBlur")
+        // Set the blur amount. Adjust this to achieve the desired effect
+        let blurAmount = 10.0
+        filter?.setValue(blurAmount, forKey: kCIInputRadiusKey)
+        
+        effectsNode.filter = filter
+        effectsNode.position = CGPoint(x: self.frame.midX, y: self.frame.midY)
+        effectsNode.blendMode = .alpha
+        
+        effectsNode.addChild(bg)
+        
+        self.addChild(effectsNode)
+
+    }
+    
+    
+
     
     override func didMove(to view: SKView) {
         
