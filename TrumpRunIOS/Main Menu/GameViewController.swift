@@ -14,6 +14,7 @@ class GameViewController: BaseViewController {
     @IBOutlet weak var playButton: UIButton!
     @IBOutlet weak var helpView: UIView!
     @IBOutlet weak var highscoreLabel: UILabel!
+    @IBOutlet weak var leaderBoardButton: UIButton!
     var currentScore = 0
     
     var highScore = UserDefaults().integer(forKey: "HIGHSCORE")
@@ -61,7 +62,8 @@ class GameViewController: BaseViewController {
     }
     
     func prepare() {
-        playButton.layer.cornerRadius = 6
+        playButton.layer.cornerRadius = 6.0
+        leaderBoardButton.layer.cornerRadius = 6.0
         helpView.layer.cornerRadius = helpView.frame.width/2
     }
 

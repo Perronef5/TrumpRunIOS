@@ -25,6 +25,7 @@ class TrumpRunScene: SKScene, SKPhysicsContactDelegate {
     var pauseChildren: [SKNode] = []
     var pauseButtonTouched = false
     var highScore = UserDefaults().integer(forKey: "HIGHSCORE")
+    var firstRound = true
     
     var bg = SKSpriteNode()
     
@@ -38,7 +39,11 @@ class TrumpRunScene: SKScene, SKPhysicsContactDelegate {
     
     var gameOver = false
     var jumpCounter = 0
-    var speedVariable: CGFloat = 100.0
+    var speedVariable1: CGFloat = 100.0
+    var speedVariable2: CGFloat = 120.0
+    var speedVariable3: CGFloat = 80.0
+    var speedVariable4: CGFloat = 60.0
+
     var creationRateVariable: CGFloat = -2.0
     
     override func sceneDidLoad() {
@@ -54,12 +59,35 @@ class TrumpRunScene: SKScene, SKPhysicsContactDelegate {
     
     @objc func makewalls() {
         
-        let movewalls = SKAction.move(by: CGVector(dx: creationRateVariable * self.frame.width, dy: 0), duration: TimeInterval(self.frame.width / speedVariable))
+        let randomNumber = arc4random_uniform(4)
+        var tempSpeedVariable: CGFloat = 0.0
+        
+        switch randomNumber {
+        case 0:
+            tempSpeedVariable = speedVariable1
+            break
+        case 1:
+            tempSpeedVariable = speedVariable2
+            break
+        case 2:
+            tempSpeedVariable = speedVariable3
+            break
+        case 3:
+            tempSpeedVariable = speedVariable4
+            break
+        default:
+            tempSpeedVariable = speedVariable1
+            break
+        }
+        
+        
+        
+        let movewalls = SKAction.move(by: CGVector(dx: creationRateVariable * self.frame.width, dy: 0), duration: TimeInterval(self.frame.width / tempSpeedVariable))
         let removewalls = SKAction.removeFromParent()
         let moveAndRemovewalls = SKAction.sequence([movewalls, removewalls])
         
         
-        let movementAmount = (arc4random() % UInt32(self.frame.height / 2)) + 50
+        let movementAmount = ((arc4random() + 50) % UInt32(self.frame.height / 2))
 //        let movementAmount = arc4random_uniform(5) + 2
 
         
@@ -115,6 +143,7 @@ class TrumpRunScene: SKScene, SKPhysicsContactDelegate {
         wall2.physicsBody!.collisionBitMask = ColliderType.Object.rawValue
         
         self.addChild(wall2)
+//        wall2.zPosition = 0.0
 
         let gap = SKSpriteNode.init(color: UIColor.clear, size: CGSize(width: wallTexture.size().width, height: wallTexture.size().height))
 //        gap.color = UIColor.green
@@ -144,7 +173,11 @@ class TrumpRunScene: SKScene, SKPhysicsContactDelegate {
             
             score += 1
             scoreLabel.text = String(score)
-            speedVariable += 40.0
+            speedVariable1 += 40.0
+            speedVariable2 += 40.0
+            speedVariable3 += 40.0
+            speedVariable4 += 40.0
+
 //            creationRateVariable -= 0.01
             
         } else if contact.bodyA.categoryBitMask == ColliderType.Ground.rawValue || contact.bodyB.categoryBitMask == ColliderType.Ground.rawValue {
@@ -157,7 +190,10 @@ class TrumpRunScene: SKScene, SKPhysicsContactDelegate {
             }
             self.speed = 0
             jumpCounter = 0
-            speedVariable = 100.0
+            speedVariable1 = 100.0
+            speedVariable2 = 120.0
+            speedVariable3 = 80.0
+            speedVariable4 = 60.0
             creationRateVariable = -2.0
             gameOver = true
             gameStarted = false
@@ -207,16 +243,26 @@ class TrumpRunScene: SKScene, SKPhysicsContactDelegate {
         {
             if name == "pauseButton"
             {
-                print("pause Button touched")
-                trump.physicsBody?.isDynamic = false
-                self.speed = 0
-                setupPauseScreen()
-                pauseButtonTouched = true
+                if pauseButtonTouched == false && gameOver == false {
+                    trump.physicsBody?.isDynamic = false
+                    self.speed = 0
+                    setupPauseScreen()
+                    pauseButtonTouched = true
+                } else if gameOver == false && pauseButtonTouched == true {
+                    removePauseScreen()
+                    trump.physicsBody?.isDynamic = true
+                    pauseButtonTouched = false
+                    resumeClicked = true
+                }
             } else if name == "resumeButton" || name == "resumeLabel" {
-                trump.physicsBody?.isDynamic = true
+                if(gameOver == false) {
+                    trump.physicsBody?.isDynamic = true
+                    pauseButtonTouched = false
+                    resumeClicked = true
+                }
+                
                 removePauseScreen()
-                pauseButtonTouched = false
-                resumeClicked = true
+
             } else if name == "restartButton" || name == "restartLabel" {
                 removePauseScreen()
                 gameOver = false
@@ -301,21 +347,29 @@ class TrumpRunScene: SKScene, SKPhysicsContactDelegate {
         let y = -quitButton.frame.height - (quitButton.frame.height/2) + (quitLabel.frame.height/2)
         quitLabel.position = CGPoint(x: 0, y: y)
         quitLabel.name = "quitLabel"
+        
+        let pauseFrame = SKShapeNode(rect: self.frame)
+//        restartButton.fillColor = UIColor.black
+        pauseFrame.name = "pauseFrame"
        
         restartButton.addChild(restartLabel)
-        self.insertChild(restartButton, at: self.children.count - 1)
+        pauseFrame.addChild(restartButton)
         resumeButton.addChild(resumeLabel)
-        self.insertChild(resumeButton, at: self.children.count - 1)
+        pauseFrame.addChild(resumeButton)
         quitButton.addChild(quitLabel)
-        self.insertChild(quitButton, at: self.children.count - 1)
-
-        pauseChildren.append(restartButton)
-        pauseChildren.append(resumeButton)
-        pauseChildren.append(quitButton)
-
+        pauseFrame.addChild(quitButton)
+        
+        self.addChild(pauseFrame)
+        pauseFrame.zPosition = 1.0
+        trump.zPosition = 0.0
+        pauseChildren.append(pauseFrame)
+//        pauseChildren.append(restartButton)
+//        pauseChildren.append(resumeButton)
+//        pauseChildren.append(quitButton)
     }
     
     func removePauseScreen() {
+//        self.removeChildren(in: pauseChildren)
         self.removeChildren(in: pauseChildren)
         self.speed = 1
         pauseChildren = []
@@ -405,12 +459,15 @@ class TrumpRunScene: SKScene, SKPhysicsContactDelegate {
         scoreLabel.fontColor = UIColor.black
         self.addChild(scoreLabel)
         
-        tapToPlayLabel.fontSize = 36
-        tapToPlayLabel.text = "Tap to play..."
-        tapToPlayLabel.position = CGPoint(x: self.frame.midX, y: self.frame.midY + 20)
-        tapToPlayLabel.fontColor = UIColor.white
-        tapToPlayLabel.name = "tapToPlay"
-        self.addChild(tapToPlayLabel)
+        if firstRound == true {
+            tapToPlayLabel.fontSize = 36
+            tapToPlayLabel.text = "Tap to Start..."
+            tapToPlayLabel.position = CGPoint(x: self.frame.midX, y: self.frame.midY + 20)
+            tapToPlayLabel.fontColor = UIColor.white
+            tapToPlayLabel.name = "tapToPlay"
+            self.addChild(tapToPlayLabel)
+            firstRound = false
+        }
     }
     
     

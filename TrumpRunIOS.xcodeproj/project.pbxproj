@@ -7,10 +7,13 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		01D87E496E4BFD7908C8C5B8 /* Pods_TrumpRunIOSUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 929C8E72D756EC56A2530AE6 /* Pods_TrumpRunIOSUITests.framework */; };
 		1B38B18E2026995D00319038 /* trump+gif.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B38B18D2026995D00319038 /* trump+gif.swift */; };
 		1B38B19320269B6F00319038 /* trump_running.gif in Resources */ = {isa = PBXBuildFile; fileRef = 1B38B19220269B6F00319038 /* trump_running.gif */; };
 		1BFC3E69202682D500A1FEDF /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BFC3E68202682D500A1FEDF /* BaseViewController.swift */; };
 		1BFC3E6B20268DF700A1FEDF /* HelpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BFC3E6A20268DF700A1FEDF /* HelpViewController.swift */; };
+		5FB0849B3C4E641B64C36E92 /* Pods_TrumpRunIOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3D3790B9097510CBA96BBA19 /* Pods_TrumpRunIOS.framework */; };
+		85951B7B92B566A1925539D5 /* Pods_TrumpRunIOSTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F08A440EEF6114F6255207BB /* Pods_TrumpRunIOSTests.framework */; };
 		9DB4859A20266E8B00B497F2 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DB4859920266E8B00B497F2 /* AppDelegate.swift */; };
 		9DB4859C20266E8B00B497F2 /* GameScene.sks in Resources */ = {isa = PBXBuildFile; fileRef = 9DB4859B20266E8B00B497F2 /* GameScene.sks */; };
 		9DB4859E20266E8B00B497F2 /* Actions.sks in Resources */ = {isa = PBXBuildFile; fileRef = 9DB4859D20266E8B00B497F2 /* Actions.sks */; };
@@ -57,6 +60,8 @@
 		9DB4861820271D8300B497F2 /* Rich_2.wav in Resources */ = {isa = PBXBuildFile; fileRef = 9DB4861720271D8300B497F2 /* Rich_2.wav */; };
 		9DB4861A20271D8A00B497F2 /* You're Finished.wav in Resources */ = {isa = PBXBuildFile; fileRef = 9DB4861920271D8A00B497F2 /* You're Finished.wav */; };
 		9DB4861C2027218200B497F2 /* mexico_pays2.wav in Resources */ = {isa = PBXBuildFile; fileRef = 9DB4861B2027218200B497F2 /* mexico_pays2.wav */; };
+		9DE9DA4F202813EA00B312A6 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DE9DA4E202813EA00B312A6 /* Constants.swift */; };
+		9DE9DA512028223E00B312A6 /* GameKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9DE9DA502028223E00B312A6 /* GameKit.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -77,10 +82,17 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		1A9D778B219EC10D9C31097E /* Pods-TrumpRunIOSTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TrumpRunIOSTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-TrumpRunIOSTests/Pods-TrumpRunIOSTests.debug.xcconfig"; sourceTree = "<group>"; };
 		1B38B18D2026995D00319038 /* trump+gif.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "trump+gif.swift"; sourceTree = "<group>"; };
 		1B38B19220269B6F00319038 /* trump_running.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = trump_running.gif; sourceTree = "<group>"; };
 		1BFC3E68202682D500A1FEDF /* BaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
 		1BFC3E6A20268DF700A1FEDF /* HelpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HelpViewController.swift; sourceTree = "<group>"; };
+		3D3790B9097510CBA96BBA19 /* Pods_TrumpRunIOS.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TrumpRunIOS.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		41B650002CE0D8552548906E /* Pods-TrumpRunIOS.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TrumpRunIOS.release.xcconfig"; path = "Pods/Target Support Files/Pods-TrumpRunIOS/Pods-TrumpRunIOS.release.xcconfig"; sourceTree = "<group>"; };
+		580CECE8C58FA0C5729325EA /* Pods-TrumpRunIOSUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TrumpRunIOSUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-TrumpRunIOSUITests/Pods-TrumpRunIOSUITests.debug.xcconfig"; sourceTree = "<group>"; };
+		929C8E72D756EC56A2530AE6 /* Pods_TrumpRunIOSUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TrumpRunIOSUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		94750D02A5A6EF0004B6E334 /* Pods-TrumpRunIOSUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TrumpRunIOSUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-TrumpRunIOSUITests/Pods-TrumpRunIOSUITests.release.xcconfig"; sourceTree = "<group>"; };
+		96850FBE124E3696360F6CD2 /* Pods-TrumpRunIOS.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TrumpRunIOS.debug.xcconfig"; path = "Pods/Target Support Files/Pods-TrumpRunIOS/Pods-TrumpRunIOS.debug.xcconfig"; sourceTree = "<group>"; };
 		9DB4859620266E8B00B497F2 /* TrumpRunIOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TrumpRunIOS.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9DB4859920266E8B00B497F2 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		9DB4859B20266E8B00B497F2 /* GameScene.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = GameScene.sks; sourceTree = "<group>"; };
@@ -133,6 +145,11 @@
 		9DB4861720271D8300B497F2 /* Rich_2.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = Rich_2.wav; sourceTree = "<group>"; };
 		9DB4861920271D8A00B497F2 /* You're Finished.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = "You're Finished.wav"; sourceTree = "<group>"; };
 		9DB4861B2027218200B497F2 /* mexico_pays2.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = mexico_pays2.wav; sourceTree = "<group>"; };
+		9DE9DA4E202813EA00B312A6 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		9DE9DA502028223E00B312A6 /* GameKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GameKit.framework; path = System/Library/Frameworks/GameKit.framework; sourceTree = SDKROOT; };
+		9DE9DA522028225C00B312A6 /* TrumpRunIOS.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = TrumpRunIOS.entitlements; sourceTree = "<group>"; };
+		F08A440EEF6114F6255207BB /* Pods_TrumpRunIOSTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TrumpRunIOSTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		F818B70A390619A9AA1AA8E3 /* Pods-TrumpRunIOSTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TrumpRunIOSTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-TrumpRunIOSTests/Pods-TrumpRunIOSTests.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -140,6 +157,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5FB0849B3C4E641B64C36E92 /* Pods_TrumpRunIOS.framework in Frameworks */,
+				9DE9DA512028223E00B312A6 /* GameKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -147,6 +166,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				85951B7B92B566A1925539D5 /* Pods_TrumpRunIOSTests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -154,6 +174,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				01D87E496E4BFD7908C8C5B8 /* Pods_TrumpRunIOSUITests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -167,6 +188,8 @@
 				9DB485B320266E8C00B497F2 /* TrumpRunIOSTests */,
 				9DB485BE20266E8C00B497F2 /* TrumpRunIOSUITests */,
 				9DB4859720266E8B00B497F2 /* Products */,
+				CB9886D3C9FD29C6FAC538B4 /* Pods */,
+				E76A6AA1354BC6FCB47EA7DC /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -183,6 +206,7 @@
 		9DB4859820266E8B00B497F2 /* TrumpRunIOS */ = {
 			isa = PBXGroup;
 			children = (
+				9DE9DA522028225C00B312A6 /* TrumpRunIOS.entitlements */,
 				9DB485AB20266E8B00B497F2 /* Info.plist */,
 				9DB485A620266E8B00B497F2 /* Assets.xcassets */,
 				9DB4859920266E8B00B497F2 /* AppDelegate.swift */,
@@ -194,6 +218,7 @@
 				9DB4860420271B2900B497F2 /* Sounds */,
 				9DB485CF2026707900B497F2 /* Fonts */,
 				9DB48624202728C900B497F2 /* Helper Files */,
+				9DE9DA4D202813BE00B312A6 /* Utilities */,
 			);
 			path = TrumpRunIOS;
 			sourceTree = "<group>";
@@ -326,6 +351,38 @@
 			path = "Helper Files";
 			sourceTree = "<group>";
 		};
+		9DE9DA4D202813BE00B312A6 /* Utilities */ = {
+			isa = PBXGroup;
+			children = (
+				9DE9DA4E202813EA00B312A6 /* Constants.swift */,
+			);
+			path = Utilities;
+			sourceTree = "<group>";
+		};
+		CB9886D3C9FD29C6FAC538B4 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				96850FBE124E3696360F6CD2 /* Pods-TrumpRunIOS.debug.xcconfig */,
+				41B650002CE0D8552548906E /* Pods-TrumpRunIOS.release.xcconfig */,
+				1A9D778B219EC10D9C31097E /* Pods-TrumpRunIOSTests.debug.xcconfig */,
+				F818B70A390619A9AA1AA8E3 /* Pods-TrumpRunIOSTests.release.xcconfig */,
+				580CECE8C58FA0C5729325EA /* Pods-TrumpRunIOSUITests.debug.xcconfig */,
+				94750D02A5A6EF0004B6E334 /* Pods-TrumpRunIOSUITests.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		E76A6AA1354BC6FCB47EA7DC /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				9DE9DA502028223E00B312A6 /* GameKit.framework */,
+				3D3790B9097510CBA96BBA19 /* Pods_TrumpRunIOS.framework */,
+				F08A440EEF6114F6255207BB /* Pods_TrumpRunIOSTests.framework */,
+				929C8E72D756EC56A2530AE6 /* Pods_TrumpRunIOSUITests.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -333,9 +390,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 9DB485C420266E8C00B497F2 /* Build configuration list for PBXNativeTarget "TrumpRunIOS" */;
 			buildPhases = (
+				C5EA55CF9369B3A42A00A783 /* [CP] Check Pods Manifest.lock */,
 				9DB4859220266E8B00B497F2 /* Sources */,
 				9DB4859320266E8B00B497F2 /* Frameworks */,
 				9DB4859420266E8B00B497F2 /* Resources */,
+				74435EF6FF4730493C6FA6FD /* [CP] Embed Pods Frameworks */,
+				06A432A082DD21451FACD703 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -350,9 +410,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 9DB485C720266E8C00B497F2 /* Build configuration list for PBXNativeTarget "TrumpRunIOSTests" */;
 			buildPhases = (
+				FFE5CA33D8C8973BBD45E25D /* [CP] Check Pods Manifest.lock */,
 				9DB485AC20266E8C00B497F2 /* Sources */,
 				9DB485AD20266E8C00B497F2 /* Frameworks */,
 				9DB485AE20266E8C00B497F2 /* Resources */,
+				0BAC53A351C237E56F01A505 /* [CP] Embed Pods Frameworks */,
+				3905FAD2D8F71543EC91EF38 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -368,9 +431,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 9DB485CA20266E8C00B497F2 /* Build configuration list for PBXNativeTarget "TrumpRunIOSUITests" */;
 			buildPhases = (
+				CED0C3C1A0CF3D258732FFE3 /* [CP] Check Pods Manifest.lock */,
 				9DB485B720266E8C00B497F2 /* Sources */,
 				9DB485B820266E8C00B497F2 /* Frameworks */,
 				9DB485B920266E8C00B497F2 /* Resources */,
+				C609362464D2F0E6C752E0BB /* [CP] Embed Pods Frameworks */,
+				64883DB5DEE02B204CFC9E93 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -395,6 +461,14 @@
 					9DB4859520266E8B00B497F2 = {
 						CreatedOnToolsVersion = 9.2;
 						ProvisioningStyle = Automatic;
+						SystemCapabilities = {
+							com.apple.GameCenter = {
+								enabled = 1;
+							};
+							com.apple.Push = {
+								enabled = 1;
+							};
+						};
 					};
 					9DB485AF20266E8C00B497F2 = {
 						CreatedOnToolsVersion = 9.2;
@@ -492,6 +566,153 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		06A432A082DD21451FACD703 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-TrumpRunIOS/Pods-TrumpRunIOS-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		0BAC53A351C237E56F01A505 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-TrumpRunIOSTests/Pods-TrumpRunIOSTests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		3905FAD2D8F71543EC91EF38 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-TrumpRunIOSTests/Pods-TrumpRunIOSTests-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		64883DB5DEE02B204CFC9E93 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-TrumpRunIOSUITests/Pods-TrumpRunIOSUITests-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		74435EF6FF4730493C6FA6FD /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-TrumpRunIOS/Pods-TrumpRunIOS-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		C5EA55CF9369B3A42A00A783 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-TrumpRunIOS-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		C609362464D2F0E6C752E0BB /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-TrumpRunIOSUITests/Pods-TrumpRunIOSUITests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		CED0C3C1A0CF3D258732FFE3 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-TrumpRunIOSUITests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		FFE5CA33D8C8973BBD45E25D /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-TrumpRunIOSTests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		9DB4859220266E8B00B497F2 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
@@ -505,6 +726,7 @@
 				9DB485A220266E8B00B497F2 /* GameViewController.swift in Sources */,
 				9DB4859A20266E8B00B497F2 /* AppDelegate.swift in Sources */,
 				1BFC3E69202682D500A1FEDF /* BaseViewController.swift in Sources */,
+				9DE9DA4F202813EA00B312A6 /* Constants.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -668,14 +890,16 @@
 		};
 		9DB485C520266E8C00B497F2 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 96850FBE124E3696360F6CD2 /* Pods-TrumpRunIOS.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = TrumpRunIOS/TrumpRunIOS.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = GNTMNU45P5;
+				DEVELOPMENT_TEAM = 4RECSC9T3M;
 				INFOPLIST_FILE = TrumpRunIOS/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.2;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = TrumpRun.TrumpRunIOS;
+				PRODUCT_BUNDLE_IDENTIFIER = com.themfirelabs.RunTrump;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -684,14 +908,16 @@
 		};
 		9DB485C620266E8C00B497F2 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 41B650002CE0D8552548906E /* Pods-TrumpRunIOS.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = TrumpRunIOS/TrumpRunIOS.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = GNTMNU45P5;
+				DEVELOPMENT_TEAM = 4RECSC9T3M;
 				INFOPLIST_FILE = TrumpRunIOS/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.2;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = TrumpRun.TrumpRunIOS;
+				PRODUCT_BUNDLE_IDENTIFIER = com.themfirelabs.RunTrump;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -700,6 +926,7 @@
 		};
 		9DB485C820266E8C00B497F2 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 1A9D778B219EC10D9C31097E /* Pods-TrumpRunIOSTests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -717,6 +944,7 @@
 		};
 		9DB485C920266E8C00B497F2 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = F818B70A390619A9AA1AA8E3 /* Pods-TrumpRunIOSTests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -734,6 +962,7 @@
 		};
 		9DB485CB20266E8C00B497F2 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 580CECE8C58FA0C5729325EA /* Pods-TrumpRunIOSUITests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
@@ -750,6 +979,7 @@
 		};
 		9DB485CC20266E8C00B497F2 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 94750D02A5A6EF0004B6E334 /* Pods-TrumpRunIOSUITests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;

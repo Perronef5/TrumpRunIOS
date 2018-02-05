@@ -30,18 +30,18 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="quT-3h-nQ4">
-                                <rect key="frame" x="40" y="557" width="295" height="50"/>
+                            <button opaque="NO" tag="2" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5cH-pk-Yv8">
+                                <rect key="frame" x="40" y="567" width="295" height="50"/>
                                 <color key="backgroundColor" red="0.066666666669999999" green="0.066666666669999999" blue="0.066666666669999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="50" id="pf0-8Y-z6w"/>
+                                    <constraint firstAttribute="height" constant="50" id="bOP-ge-JCX"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" name="Helvetica-Bold" family="Helvetica" pointSize="18"/>
-                                <state key="normal" title="PLAY">
+                                <state key="normal" title="LEADERBOARD">
                                     <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </state>
                                 <connections>
-                                    <action selector="buttonAction:" destination="BV1-FR-VrT" eventType="touchUpInside" id="OfB-f5-bg8"/>
+                                    <action selector="buttonAction:" destination="BV1-FR-VrT" eventType="touchUpInside" id="DAs-FX-5ov"/>
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" insetsLayoutMarginsFromSafeArea="NO" text="TRUMP RUSH" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qkq-cm-aYw">
@@ -54,7 +54,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <view alpha="0.40000000000000002" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="k7N-vq-Vgo">
-                                <rect key="frame" x="325" y="615" width="25" height="25"/>
+                                <rect key="frame" x="325" y="625" width="25" height="25"/>
                                 <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="25" id="D96-ho-XCN"/>
@@ -62,7 +62,7 @@
                                 </constraints>
                             </view>
                             <button opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="R0x-aT-ELY">
-                                <rect key="frame" x="322.5" y="612.5" width="30" height="30"/>
+                                <rect key="frame" x="322.5" y="622.5" width="30" height="30"/>
                                 <state key="normal" title="?">
                                     <color key="titleColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                                 </state>
@@ -79,20 +79,37 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="quT-3h-nQ4">
+                                <rect key="frame" x="40" y="497" width="295" height="50"/>
+                                <color key="backgroundColor" red="0.066666666669999999" green="0.066666666669999999" blue="0.066666666669999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="pf0-8Y-z6w"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="Helvetica-Bold" family="Helvetica" pointSize="18"/>
+                                <state key="normal" title="PLAY">
+                                    <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="buttonAction:" destination="BV1-FR-VrT" eventType="touchUpInside" id="OfB-f5-bg8"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
+                            <constraint firstItem="4qk-I5-YsI" firstAttribute="trailing" secondItem="5cH-pk-Yv8" secondAttribute="trailing" constant="40" id="5qY-hS-ZhU"/>
                             <constraint firstItem="qkq-cm-aYw" firstAttribute="centerY" secondItem="4qk-I5-YsI" secondAttribute="centerY" constant="-150" id="9V9-ai-CXQ"/>
-                            <constraint firstItem="k7N-vq-Vgo" firstAttribute="trailing" secondItem="quT-3h-nQ4" secondAttribute="trailing" constant="15" id="Ao4-og-ANl"/>
-                            <constraint firstItem="k7N-vq-Vgo" firstAttribute="top" secondItem="quT-3h-nQ4" secondAttribute="bottom" constant="8" id="E6U-nS-UQu"/>
+                            <constraint firstItem="5cH-pk-Yv8" firstAttribute="leading" secondItem="4qk-I5-YsI" secondAttribute="leading" constant="40" id="J7Z-FO-tew"/>
                             <constraint firstItem="R0x-aT-ELY" firstAttribute="centerY" secondItem="k7N-vq-Vgo" secondAttribute="centerY" id="Mkz-W2-YtY"/>
                             <constraint firstItem="wpc-Ao-2zy" firstAttribute="centerY" secondItem="4qk-I5-YsI" secondAttribute="centerY" id="R8v-lK-CbD"/>
-                            <constraint firstItem="4qk-I5-YsI" firstAttribute="bottom" secondItem="quT-3h-nQ4" secondAttribute="bottom" constant="60" id="TS5-Ut-HQK"/>
+                            <constraint firstItem="k7N-vq-Vgo" firstAttribute="trailing" secondItem="5cH-pk-Yv8" secondAttribute="trailing" constant="15" id="Vd8-Sl-Sbh"/>
+                            <constraint firstItem="4qk-I5-YsI" firstAttribute="bottom" secondItem="5cH-pk-Yv8" secondAttribute="bottom" constant="50" id="ZeQ-DW-0IT"/>
                             <constraint firstItem="R0x-aT-ELY" firstAttribute="centerX" secondItem="k7N-vq-Vgo" secondAttribute="centerX" id="dH6-ck-7Eg"/>
+                            <constraint firstItem="k7N-vq-Vgo" firstAttribute="top" secondItem="5cH-pk-Yv8" secondAttribute="bottom" constant="8" id="dMD-pc-aKM"/>
                             <constraint firstItem="qkq-cm-aYw" firstAttribute="leading" secondItem="4qk-I5-YsI" secondAttribute="leading" constant="20" id="l4p-hM-8j6"/>
                             <constraint firstItem="wpc-Ao-2zy" firstAttribute="centerX" secondItem="4qk-I5-YsI" secondAttribute="centerX" id="rQe-5t-L0i"/>
                             <constraint firstItem="4qk-I5-YsI" firstAttribute="trailing" secondItem="quT-3h-nQ4" secondAttribute="trailing" constant="40" id="sYs-Lg-Jvc"/>
                             <constraint firstItem="4qk-I5-YsI" firstAttribute="trailing" secondItem="qkq-cm-aYw" secondAttribute="trailing" constant="20" id="sac-dX-GyL"/>
+                            <constraint firstItem="5cH-pk-Yv8" firstAttribute="top" secondItem="quT-3h-nQ4" secondAttribute="bottom" constant="20" id="t4D-Hl-dhO"/>
                             <constraint firstItem="quT-3h-nQ4" firstAttribute="leading" secondItem="4qk-I5-YsI" secondAttribute="leading" constant="40" id="tWM-uc-l84"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="4qk-I5-YsI"/>
@@ -102,6 +119,7 @@
                     <connections>
                         <outlet property="helpView" destination="k7N-vq-Vgo" id="4Yo-TH-Vos"/>
                         <outlet property="highscoreLabel" destination="wpc-Ao-2zy" id="MkT-D3-2DR"/>
+                        <outlet property="leaderBoardButton" destination="5cH-pk-Yv8" id="Ztc-6H-3vv"/>
                         <outlet property="playButton" destination="quT-3h-nQ4" id="kAK-p2-lXP"/>
                     </connections>
                 </viewController>
@@ -240,13 +258,32 @@
                     <view key="view" contentMode="scaleToFill" id="tRg-mB-wrU" customClass="SKView">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="6mP-di-eVI" customClass="GADBannerView">
+                                <rect key="frame" x="25" y="617" width="325" height="50"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="lWF-2R-8jd"/>
+                                    <constraint firstAttribute="width" constant="325" id="xZX-GV-fp8"/>
+                                </constraints>
+                            </view>
+                        </subviews>
                         <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="vGd-T2-fOg" firstAttribute="bottom" secondItem="6mP-di-eVI" secondAttribute="bottom" id="QAt-zA-Ybx"/>
+                            <constraint firstItem="6mP-di-eVI" firstAttribute="leading" secondItem="vGd-T2-fOg" secondAttribute="leading" constant="25" id="nCN-1X-pMH"/>
+                            <constraint firstItem="vGd-T2-fOg" firstAttribute="trailing" secondItem="6mP-di-eVI" secondAttribute="trailing" constant="25" id="nsV-Bc-gdi"/>
+                            <constraint firstItem="6mP-di-eVI" firstAttribute="centerX" secondItem="vGd-T2-fOg" secondAttribute="centerX" id="xCo-F7-zKb"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="vGd-T2-fOg"/>
                     </view>
+                    <connections>
+                        <outlet property="adMobBannerView" destination="6mP-di-eVI" id="N3Q-1p-8qt"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="XWl-rE-jgV" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="817" y="34"/>
+            <point key="canvasLocation" x="816.79999999999995" y="33.733133433283363"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="gwR-t3-06p">
