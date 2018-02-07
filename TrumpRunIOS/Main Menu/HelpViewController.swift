@@ -11,7 +11,7 @@ import UIKit
 class HelpViewController: BaseViewController {
 
     @IBOutlet weak var rulesView: UIView!
-    @IBOutlet weak var gifView: UIImageView!
+//    @IBOutlet weak var gifView: UIImageView!
     
     @IBOutlet weak var helpbackButton: UIButton!
     @IBOutlet weak var helpbackButton_2: UIButton!
@@ -50,14 +50,27 @@ class HelpViewController: BaseViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        gifView.loadGif(name: "trump_running")
+//        gifView.loadGif(name: "trump_running")
         prepare()
         
         // Do any additional setup after loading the view.
     }
     
+    override var prefersStatusBarHidden: Bool {
+        return true
+    }
+    
     func prepare() {
+        self.view.backgroundColor = UIColor.clear
+        
+        let blurEffect = UIBlurEffect(style: UIBlurEffectStyle.dark)
+        let blurEffectView = UIVisualEffectView(effect: blurEffect)
+        blurEffectView.frame = self.view.bounds
+        blurEffectView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
+        blurEffectView.clipsToBounds = true
+        self.view.addSubview(blurEffectView)
+        self.view.sendSubview(toBack: blurEffectView)
+        
         helpbackButton_2.layer.cornerRadius = 6.0
         helpbackButton_2.layer.shadowColor = UIColorFromRGB(rgbValue: 0x212121).cgColor
         helpbackButton_2.layer.shadowOpacity = 0.3

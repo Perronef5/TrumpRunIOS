@@ -27,6 +27,7 @@ class GameViewController: BaseViewController {
             break
         case 1:
             let helpViewControlller = UIStoryboard.viewControllerMain(identifier: "helpViewController") as! HelpViewController
+            helpViewControlller.modalPresentationStyle = UIModalPresentationStyle.overCurrentContext
             self.navigationController?.present(helpViewControlller, animated: true, completion: nil)
             break
         default:
