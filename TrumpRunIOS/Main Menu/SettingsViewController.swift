@@ -1,21 +1,17 @@
 //
-//  HelpViewController.swift
+//  SettingsViewController.swift
 //  TrumpRunIOS
 //
-//  Created by Marcial Cabrera on 2/3/18.
+//  Created by Luis F. Perrone on 2/6/18.
 //  Copyright © 2018 TrumpRun. All rights reserved.
 //
 
 import UIKit
 
-class HelpViewController: BaseViewController {
-
-    @IBOutlet weak var rulesView: UIView!
-//    @IBOutlet weak var gifView: UIImageView!
+class SettingsViewController: BaseViewController {
     
-    @IBOutlet weak var helpbackButton: UIButton!
     @IBOutlet weak var helpbackButton_2: UIButton!
-    
+    @IBOutlet weak var resetHighScoreButton: UIButton!
     
     @IBAction func buttonAction(_ sender: Any) {
         
@@ -28,35 +24,26 @@ class HelpViewController: BaseViewController {
             }
             
             break
-            
         case 1:
-            if let nav = self.navigationController {
-                nav.popViewController(animated: true)
-            } else {
-                self.dismiss(animated: true, completion: nil)
-            }
-            break
-        case 2:
             UserDefaults.standard.set(0, forKey: "HIGHSCORE")
             break
         default:
             break
             
             
+        }
     }
-    }
-    
-    
+
     override func viewDidLoad() {
         super.viewDidLoad()
-//        gifView.loadGif(name: "trump_running")
         prepare()
-        
+
         // Do any additional setup after loading the view.
     }
-    
-    override var prefersStatusBarHidden: Bool {
-        return true
+
+    override func didReceiveMemoryWarning() {
+        super.didReceiveMemoryWarning()
+        // Dispose of any resources that can be recreated.
     }
     
     func prepare() {
@@ -70,20 +57,10 @@ class HelpViewController: BaseViewController {
         self.view.addSubview(blurEffectView)
         self.view.sendSubview(toBack: blurEffectView)
         
-        helpbackButton_2.layer.cornerRadius = 6.0
-        helpbackButton_2.layer.shadowColor = UIColorFromRGB(rgbValue: 0x212121).cgColor
-        helpbackButton_2.layer.shadowOpacity = 0.3
-        helpbackButton_2.layer.shadowOffset = CGSize(width: 3.0, height: 3.0)
-        
-        rulesView.layer.shadowColor = UIColorFromRGB(rgbValue: 0x212121).cgColor
-        rulesView.layer.shadowOpacity = 0.3
-        rulesView.layer.shadowOffset = CGSize(width: 3.0, height: 3.0)
-        
-    }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+        resetHighScoreButton.layer.cornerRadius = 6.0
+        resetHighScoreButton.layer.shadowColor = UIColorFromRGB(rgbValue: 0x212121).cgColor
+        resetHighScoreButton.layer.shadowOpacity = 0.3
+        resetHighScoreButton.layer.shadowOffset = CGSize(width: 3.0, height: 3.0)
     }
     
 

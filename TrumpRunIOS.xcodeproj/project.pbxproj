@@ -62,6 +62,7 @@
 		9DB4861C2027218200B497F2 /* mexico_pays2.wav in Resources */ = {isa = PBXBuildFile; fileRef = 9DB4861B2027218200B497F2 /* mexico_pays2.wav */; };
 		9DE9DA4F202813EA00B312A6 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DE9DA4E202813EA00B312A6 /* Constants.swift */; };
 		9DE9DA512028223E00B312A6 /* GameKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9DE9DA502028223E00B312A6 /* GameKit.framework */; };
+		9DE9DA54202AA7F300B312A6 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DE9DA53202AA7F300B312A6 /* SettingsViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -148,6 +149,7 @@
 		9DE9DA4E202813EA00B312A6 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		9DE9DA502028223E00B312A6 /* GameKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GameKit.framework; path = System/Library/Frameworks/GameKit.framework; sourceTree = SDKROOT; };
 		9DE9DA522028225C00B312A6 /* TrumpRunIOS.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = TrumpRunIOS.entitlements; sourceTree = "<group>"; };
+		9DE9DA53202AA7F300B312A6 /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 		F08A440EEF6114F6255207BB /* Pods_TrumpRunIOSTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TrumpRunIOSTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		F818B70A390619A9AA1AA8E3 /* Pods-TrumpRunIOSTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TrumpRunIOSTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-TrumpRunIOSTests/Pods-TrumpRunIOSTests.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -337,6 +339,7 @@
 				1BFC3E6A20268DF700A1FEDF /* HelpViewController.swift */,
 				9DB485A120266E8B00B497F2 /* GameViewController.swift */,
 				9DB4859F20266E8B00B497F2 /* GameScene.swift */,
+				9DE9DA53202AA7F300B312A6 /* SettingsViewController.swift */,
 			);
 			path = "Main Menu";
 			sourceTree = "<group>";
@@ -721,6 +724,7 @@
 				1BFC3E6B20268DF700A1FEDF /* HelpViewController.swift in Sources */,
 				9DB485FB2026729600B497F2 /* TrumpRunViewController.swift in Sources */,
 				9DB485A020266E8B00B497F2 /* GameScene.swift in Sources */,
+				9DE9DA54202AA7F300B312A6 /* SettingsViewController.swift in Sources */,
 				1B38B18E2026995D00319038 /* trump+gif.swift in Sources */,
 				9DB485CE20266FC600B497F2 /* TrumpRunScene.swift in Sources */,
 				9DB485A220266E8B00B497F2 /* GameViewController.swift in Sources */,

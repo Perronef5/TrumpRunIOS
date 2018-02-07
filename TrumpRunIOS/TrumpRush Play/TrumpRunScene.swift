@@ -58,219 +58,236 @@ class TrumpRunScene: SKScene, SKPhysicsContactDelegate {
     
     @objc func makewalls() {
         
-        let randomNumber = arc4random_uniform(4)
-        var tempSpeedVariable: CGFloat = 0.0
+        if pauseButtonTouched == false {
         
-        switch randomNumber {
-        case 0:
-            tempSpeedVariable = speedVariable1
-            break
-        case 1:
-            tempSpeedVariable = speedVariable2
-            break
-        case 2:
-            tempSpeedVariable = speedVariable3
-            break
-        case 3:
-            tempSpeedVariable = speedVariable4
-            break
-        default:
-            tempSpeedVariable = speedVariable1
-            break
-        }
-        
-        var tempSpeedVariable2: CGFloat = 0.0
-        
-        switch randomNumber {
-        case 0:
-            tempSpeedVariable2 = speedVariable1
-            break
-        case 1:
-            tempSpeedVariable2 = speedVariable2
-            break
-        case 2:
-            tempSpeedVariable2 = speedVariable3
-            break
-        case 3:
-            tempSpeedVariable2 = speedVariable4
-            break
-        default:
-            tempSpeedVariable2 = speedVariable1
-            break
-        }
-        
-        
-        
-        let movewalls = SKAction.move(by: CGVector(dx: creationRateVariable * self.frame.width, dy: 0), duration: TimeInterval(self.frame.width / tempSpeedVariable))
-        let removewalls = SKAction.removeFromParent()
-        let moveAndRemovewalls = SKAction.sequence([movewalls, removewalls])
-        
-        let moveKims = SKAction.move(by: CGVector(dx: creationRateVariable * self.frame.width, dy: 0), duration: TimeInterval(self.frame.width / (tempSpeedVariable2 + 100)))
-        let removeKims = SKAction.removeFromParent()
-        let moveAndRemoveKims = SKAction.sequence([moveKims, removeKims])
-        
-        
-        
-        let movementAmount = ((arc4random() + 50) % UInt32(self.frame.height / 2))
-//        let movementAmount = arc4random_uniform(5) + 2
-
-        
-        let wallOffset = CGFloat(movementAmount) - self.frame.height / 4
-        
-//        let wallTexture = SKTexture(imageNamed: "wall_wall.png")
-        var wallTexture = SKTexture()
-        let kimTexture = SKTexture(imageNamed: "kim_rocket.png")
-
-        if score >= 15 && score < 30 {
-            if score == 15 {
-            playNewStageSound()
-            }
             let randomNumber = arc4random_uniform(4)
-            if randomNumber > 0 {
-                wallTexture = SKTexture(imageNamed: "brick_wall_wspikes.png")
+            var tempSpeedVariable: CGFloat = 0.0
+            
+            switch randomNumber {
+            case 0:
+                tempSpeedVariable = speedVariable1
+                break
+            case 1:
+                tempSpeedVariable = speedVariable2
+                break
+            case 2:
+                tempSpeedVariable = speedVariable3
+                break
+            case 3:
+                tempSpeedVariable = speedVariable4
+                break
+            default:
+                tempSpeedVariable = speedVariable1
+                break
+            }
+            
+            var tempSpeedVariable2: CGFloat = 0.0
+            
+            switch randomNumber {
+            case 0:
+                tempSpeedVariable2 = speedVariable1
+                break
+            case 1:
+                tempSpeedVariable2 = speedVariable2
+                break
+            case 2:
+                tempSpeedVariable2 = speedVariable3
+                break
+            case 3:
+                tempSpeedVariable2 = speedVariable4
+                break
+            default:
+                tempSpeedVariable2 = speedVariable1
+                break
+            }
+            
+            
+            
+            let movewalls = SKAction.move(by: CGVector(dx: creationRateVariable * self.frame.width, dy: 0), duration: TimeInterval(self.frame.width / tempSpeedVariable))
+            let removewalls = SKAction.removeFromParent()
+            let moveAndRemovewalls = SKAction.sequence([movewalls, removewalls])
+            
+            let moveKims = SKAction.move(by: CGVector(dx: creationRateVariable * self.frame.width, dy: 0), duration: TimeInterval(self.frame.width / (tempSpeedVariable2 + 100)))
+            let removeKims = SKAction.removeFromParent()
+            let moveAndRemoveKims = SKAction.sequence([moveKims, removeKims])
+            
+            
+            
+            let movementAmount = ((arc4random() + 50) % UInt32(self.frame.height / 2))
+    //        let movementAmount = arc4random_uniform(5) + 2
+
+            
+            let wallOffset = CGFloat(movementAmount) - self.frame.height / 4
+            
+    //        let wallTexture = SKTexture(imageNamed: "wall_wall.png")
+            var wallTexture = SKTexture()
+            let kimTexture = SKTexture(imageNamed: "kim_rocket.png")
+
+            if score >= 15 && score < 30 {
+                if score == 15 {
+                playNewStageSound()
+                }
+                let randomNumber = arc4random_uniform(4)
+                if randomNumber > 0 {
+                    wallTexture = SKTexture(imageNamed: "brick_wall_wspikes.png")
+                } else {
+                    wallTexture = SKTexture(imageNamed: "brick_wall.png")
+                }
+            } else if score >= 30 && score < 45 {
+                if score == 30 {
+                playNewStageSound()
+                }
+                wallTexture = SKTexture(imageNamed: "cactus.png")
+
+            } else if score >= 45 && score < 60 {
+                if score == 45 {
+                playNewStageSound()
+                }
+                wallTexture = SKTexture(imageNamed: "fence_wall.png")
+            } else if score >= 60 {
+                if score == 60 {
+                play60MarkSound()
+                }
+                wallTexture = SKTexture(imageNamed: "trump_wall.png")
             } else {
                 wallTexture = SKTexture(imageNamed: "brick_wall.png")
             }
-        } else if score >= 30 && score < 45 {
-            if score == 30 {
-            playNewStageSound()
-            }
-            wallTexture = SKTexture(imageNamed: "cactus.png")
+            
+            let wall2 = SKSpriteNode(texture: wallTexture)
+            let kimRocket = SKSpriteNode(texture: kimTexture)
+            
+    //        let gapHeight = trump.size.height
+            
+            
+            wall2.position = CGPoint(x: self.frame.midX + self.frame.width, y: self.frame.midY - (wallTexture.size().height / 1.5) + wallOffset)
+            
+            wall2.run(moveAndRemovewalls)
+            
+            wall2.physicsBody = SKPhysicsBody(rectangleOf: wallTexture.size())
+            
+            wall2.physicsBody!.isDynamic = false
+            
+            wall2.physicsBody!.contactTestBitMask = ColliderType.Trump.rawValue
+            wall2.physicsBody!.categoryBitMask = ColliderType.Object.rawValue
+            wall2.physicsBody!.collisionBitMask = ColliderType.Object.rawValue
+            
+           
+            self.addChild(wall2)
+    //        wall2.zPosition = 0.0
 
-        } else if score >= 45 && score < 60 {
-            if score == 45 {
-            playNewStageSound()
-            }
-            wallTexture = SKTexture(imageNamed: "fence_wall.png")
-        } else if score >= 60 {
-            if score == 60 {
-            play60MarkSound()
-            }
-            wallTexture = SKTexture(imageNamed: "trump_wall.png")
-        } else {
-            wallTexture = SKTexture(imageNamed: "brick_wall.png")
-        }
-        
-        let wall2 = SKSpriteNode(texture: wallTexture)
-        let kimRocket = SKSpriteNode(texture: kimTexture)
-        
-//        let gapHeight = trump.size.height
-        
-        
-        wall2.position = CGPoint(x: self.frame.midX + self.frame.width, y: self.frame.midY - (wallTexture.size().height / 1.5) + wallOffset)
-        
-        wall2.run(moveAndRemovewalls)
-        
-        wall2.physicsBody = SKPhysicsBody(rectangleOf: wallTexture.size())
-        
-        wall2.physicsBody!.isDynamic = false
-        
-        wall2.physicsBody!.contactTestBitMask = ColliderType.Trump.rawValue
-        wall2.physicsBody!.categoryBitMask = ColliderType.Object.rawValue
-        wall2.physicsBody!.collisionBitMask = ColliderType.Object.rawValue
-        
-       
-        self.addChild(wall2)
-//        wall2.zPosition = 0.0
+            let gap = SKSpriteNode.init(color: UIColor.clear, size: CGSize(width: wallTexture.size().width, height: wallTexture.size().height))
+    //        gap.color = UIColor.green
+            
+            gap.position = CGPoint(x: self.frame.midX + self.frame.width, y: self.frame.midY + wallOffset)
+            
+            gap.physicsBody = SKPhysicsBody(rectangleOf: CGSize(width: wall2.size.width, height: wallTexture.size().height))
+            print(wallOffset)
+            print(gap.frame)
+            
+            gap.physicsBody?.isDynamic = false
+            
+            gap.run(moveAndRemovewalls)
 
-        let gap = SKSpriteNode.init(color: UIColor.clear, size: CGSize(width: wallTexture.size().width, height: wallTexture.size().height))
-//        gap.color = UIColor.green
-        
-        gap.position = CGPoint(x: self.frame.midX + self.frame.width, y: self.frame.midY + wallOffset)
-        
-        gap.physicsBody = SKPhysicsBody(rectangleOf: CGSize(width: wall2.size.width, height: wallTexture.size().height))
-        print(wallOffset)
-        print(gap.frame)
-        
-        gap.physicsBody?.isDynamic = false
-        
-        gap.run(moveAndRemovewalls)
-
-        gap.physicsBody!.contactTestBitMask = ColliderType.Trump.rawValue
-        gap.physicsBody!.categoryBitMask = ColliderType.Gap.rawValue
-        gap.physicsBody!.collisionBitMask = ColliderType.Trump.rawValue
-        
-        self.addChild(gap)
-        
-        
-        let randomNumber2 = arc4random_uniform(2)
-        
-        if randomNumber2 == 0 {
-            kimRocket.position = CGPoint(x: self.frame.midX - 150 + self.frame.width, y: self.frame.midY - (wallTexture.size().height / 1.5) + wallOffset + (gap.frame.height/1.3))
+            gap.physicsBody!.contactTestBitMask = ColliderType.Trump.rawValue
+            gap.physicsBody!.categoryBitMask = ColliderType.Gap.rawValue
+            gap.physicsBody!.collisionBitMask = ColliderType.Trump.rawValue
             
-            kimRocket.run(moveAndRemoveKims)
+            self.addChild(gap)
             
-            kimRocket.physicsBody = SKPhysicsBody(rectangleOf: kimTexture.size())
+            var randomNumberAmount = 0
             
-            kimRocket.physicsBody!.isDynamic = false
-            
-            kimRocket.physicsBody!.contactTestBitMask = ColliderType.Trump.rawValue
-            kimRocket.physicsBody!.categoryBitMask = ColliderType.Object.rawValue
-            kimRocket.physicsBody!.collisionBitMask = ColliderType.Object.rawValue
-            
-            self.addChild(kimRocket)
-        }
-        
-        
-    }
-    
-    func didBegin(_ contact: SKPhysicsContact) {
-        
-        if gameOver == false {
-        if contact.bodyA.categoryBitMask == ColliderType.Gap.rawValue || contact.bodyB.categoryBitMask == ColliderType.Gap.rawValue {
-            
-            score += 1
-            scoreLabel.text = String(score)
-            speedVariable1 += 20.0
-            speedVariable2 += 20.0
-            speedVariable3 += 20.0
-            speedVariable4 += 20.0
-
-//            creationRateVariable -= 0.01
-            
-        } else if contact.bodyA.categoryBitMask == ColliderType.Ground.rawValue || contact.bodyB.categoryBitMask == ColliderType.Ground.rawValue {
-            jumpCounter = 0
-            trump.removeAllActions()
-            let trumpTexture1 = SKTexture(imageNamed: "trump_running4.png")
-            let trumpTexture2 = SKTexture(imageNamed: "trump_running5.png")
-            let trumpTexture3 = SKTexture(imageNamed: "trump_running6.png")
-            let trumpTexture4 = SKTexture(imageNamed: "trump_running7.png")
-
-            let animation = SKAction.animate(with: [trumpTexture1, trumpTexture2, trumpTexture3, trumpTexture4], timePerFrame: 0.1)
-            let maketrumpRun = SKAction.repeatForever(animation)
-            trump.size = CGSize(width: 120, height: trump.frame.height)
-            trump.run(maketrumpRun)
-        } else {
-            if score > highScore {
-                playHighScoreSound()
+            if score < 15 {
+                randomNumberAmount = 5
+            } else if score < 31 {
+                randomNumberAmount = 4
+            } else if score < 46 {
+                randomNumberAmount = 3
             } else {
-                playDeathSound()
+                randomNumberAmount = 2
             }
-            self.speed = 0
-            jumpCounter = 0
-            speedVariable1 = 100.0
-            speedVariable2 = 120.0
-            speedVariable3 = 80.0
-            speedVariable4 = 60.0
-            creationRateVariable = -2.0
-            gameOver = true
-            gameStarted = false
-            timer.invalidate()
-            saveHighScore()
             
-            highScoreLabel.fontSize = 36
-            highScoreLabel.text = "HIGHSCORE: \(String(highScore))"
-            highScoreLabel.position = CGPoint(x: self.frame.midX, y: self.frame.midY + 60)
-            highScoreLabel.fontColor = UIColor.white
-            self.insertChild(highScoreLabel, at: self.children.count - 1)
+            let randomNumber2 = arc4random_uniform(UInt32(randomNumberAmount))
+            
+            if randomNumber2 == 0 {
+                kimRocket.position = CGPoint(x: self.frame.midX - 150 + self.frame.width, y: self.frame.midY - (wallTexture.size().height / 1.5) + wallOffset + (gap.frame.height/1.3))
+                
+                kimRocket.run(moveAndRemoveKims)
+                
+                kimRocket.physicsBody = SKPhysicsBody(rectangleOf: kimTexture.size())
+                
+                kimRocket.physicsBody!.isDynamic = false
+                
+                kimRocket.physicsBody!.contactTestBitMask = ColliderType.Trump.rawValue
+                kimRocket.physicsBody!.categoryBitMask = ColliderType.Object.rawValue
+                kimRocket.physicsBody!.collisionBitMask = ColliderType.Object.rawValue
+                
+                self.addChild(kimRocket)
+            }
+            
+            }
         
-            gameOverLabel.fontSize = 36
-            gameOverLabel.text = "Game Over. Tap to play again."
-            gameOverLabel.position = CGPoint(x: self.frame.midX, y: self.frame.midY)
-            gameOverLabel.fontColor = UIColor.white
-            self.insertChild(gameOverLabel, at: self.children.count - 1)
-            
+        
         }
+    
+        func didBegin(_ contact: SKPhysicsContact) {
+            
+            if gameOver == false {
+            if contact.bodyA.categoryBitMask == ColliderType.Gap.rawValue || contact.bodyB.categoryBitMask == ColliderType.Gap.rawValue {
+                
+                score += 1
+                scoreLabel.text = String(score)
+                if(speedVariable2 < 760) {
+                speedVariable1 += 20.0
+                speedVariable2 += 20.0
+                speedVariable3 += 20.0
+                speedVariable4 += 20.0
+                }
+
+    //            creationRateVariable -= 0.01
+                
+            } else if contact.bodyA.categoryBitMask == ColliderType.Ground.rawValue || contact.bodyB.categoryBitMask == ColliderType.Ground.rawValue {
+                jumpCounter = 0
+                trump.removeAllActions()
+                let trumpTexture1 = SKTexture(imageNamed: "trump_running4.png")
+                let trumpTexture2 = SKTexture(imageNamed: "trump_running5.png")
+                let trumpTexture3 = SKTexture(imageNamed: "trump_running6.png")
+                let trumpTexture4 = SKTexture(imageNamed: "trump_running7.png")
+
+                let animation = SKAction.animate(with: [trumpTexture1, trumpTexture2, trumpTexture3, trumpTexture4], timePerFrame: 0.1)
+                let maketrumpRun = SKAction.repeatForever(animation)
+                trump.size = CGSize(width: 120, height: trump.frame.height)
+                trump.run(maketrumpRun)
+            } else {
+                if score > highScore {
+                    playHighScoreSound()
+                } else {
+                    playDeathSound()
+                }
+                self.speed = 0
+                jumpCounter = 0
+                speedVariable1 = 100.0
+                speedVariable2 = 120.0
+                speedVariable3 = 80.0
+                speedVariable4 = 60.0
+                creationRateVariable = -2.0
+                gameOver = true
+                gameStarted = false
+                timer.invalidate()
+                saveHighScore()
+                
+                highScoreLabel.fontSize = 36
+                highScoreLabel.text = "HIGHSCORE: \(String(highScore))"
+                highScoreLabel.position = CGPoint(x: self.frame.midX, y: self.frame.midY + 60)
+                highScoreLabel.fontColor = UIColor.white
+                self.insertChild(highScoreLabel, at: self.children.count - 1)
+            
+                gameOverLabel.fontSize = 36
+                gameOverLabel.text = "Game Over. Tap to play again."
+                gameOverLabel.position = CGPoint(x: self.frame.midX, y: self.frame.midY)
+                gameOverLabel.fontColor = UIColor.white
+                self.insertChild(gameOverLabel, at: self.children.count - 1)
+                
+            }
             
         }
         

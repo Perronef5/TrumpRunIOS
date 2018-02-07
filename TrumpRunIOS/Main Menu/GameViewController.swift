@@ -41,6 +41,11 @@ class GameViewController: BaseViewController, GKGameCenterControllerDelegate {
             let GCVC = GKGameCenterViewController()
             GCVC.gameCenterDelegate = self
             self.navigationController?.present(GCVC, animated: true, completion: nil)
+        case 3:
+            let settingsViewController = UIStoryboard.viewControllerMain(identifier: "settingsViewController") as! SettingsViewController
+            settingsViewController.modalPresentationStyle = UIModalPresentationStyle.overCurrentContext
+            self.navigationController?.present(settingsViewController, animated: true, completion: nil)
+            break
         default:
             break
         }
@@ -58,7 +63,7 @@ class GameViewController: BaseViewController, GKGameCenterControllerDelegate {
             // Load the SKScene from 'GameScene.sks'
             if let scene = SKScene(fileNamed: "GameScene") {
                 // Set the scale mode to scale to fit the window
-                scene.scaleMode = .aspectFill
+                scene.scaleMode = .fill
                 
                 // Present the scene
                 view.presentScene(scene)
