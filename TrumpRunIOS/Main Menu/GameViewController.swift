@@ -9,11 +9,19 @@
 import UIKit
 import SpriteKit
 import GameplayKit
+import GameKit
 
-class GameViewController: BaseViewController {
+
+class GameViewController: BaseViewController, GKGameCenterControllerDelegate {
+    
+    func gameCenterViewControllerDidFinish(_ gameCenterViewController: GKGameCenterViewController) {
+        gameCenterViewController.dismiss(animated: true, completion: nil)
+    }
+    
     @IBOutlet weak var playButton: UIButton!
     @IBOutlet weak var helpView: UIView!
     @IBOutlet weak var highscoreLabel: UILabel!
+    @IBOutlet weak var leaderBoardButton: UIButton!
     var currentScore = 0
     
     var highScore = UserDefaults().integer(forKey: "HIGHSCORE")
@@ -26,8 +34,13 @@ class GameViewController: BaseViewController {
             break
         case 1:
             let helpViewControlller = UIStoryboard.viewControllerMain(identifier: "helpViewController") as! HelpViewController
+            helpViewControlller.modalPresentationStyle = UIModalPresentationStyle.overCurrentContext
             self.navigationController?.present(helpViewControlller, animated: true, completion: nil)
             break
+        case 2:
+            let GCVC = GKGameCenterViewController()
+            GCVC.gameCenterDelegate = self
+            self.navigationController?.present(GCVC, animated: true, completion: nil)
         default:
             break
         }
@@ -39,6 +52,7 @@ class GameViewController: BaseViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        authPlayer()
         
         if let view = self.view as! SKView? {
             // Load the SKScene from 'GameScene.sks'
@@ -61,7 +75,8 @@ class GameViewController: BaseViewController {
     }
     
     func prepare() {
-        playButton.layer.cornerRadius = 6
+        playButton.layer.cornerRadius = 6.0
+        leaderBoardButton.layer.cornerRadius = 6.0
         helpView.layer.cornerRadius = helpView.frame.width/2
     }
 
@@ -89,5 +104,27 @@ class GameViewController: BaseViewController {
     func setHighScore() {
         highScore = UserDefaults().integer(forKey: "HIGHSCORE")
         highscoreLabel.text = "HIGHSCORE: \(String(highScore))"
+        
+        if GKLocalPlayer.localPlayer().isAuthenticated {
+            let scoreReporter = GKScore(leaderboardIdentifier: "TrumpRushHS")
+            
+            scoreReporter.value = Int64(highScore)
+            let scoreArray: [GKScore] = [scoreReporter]
+            GKScore.report(scoreArray, withCompletionHandler: nil)
+        }
+    }
+    
+    func authPlayer() {
+        let localPlayer = GKLocalPlayer.localPlayer()
+        
+        localPlayer.authenticateHandler = {
+            (view, error) in
+            
+            if view != nil {
+                self.present(view!, animated: true, completion: nil)
+            } else {
+                print(GKLocalPlayer.localPlayer().isAuthenticated)
+            }
+        }
     }
 }
