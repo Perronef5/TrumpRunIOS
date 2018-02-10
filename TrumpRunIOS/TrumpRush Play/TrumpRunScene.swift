@@ -26,6 +26,8 @@ class TrumpRunScene: SKScene, SKPhysicsContactDelegate {
     var pauseButtonTouched = false
     var highScore = UserDefaults().integer(forKey: "HIGHSCORE")
     var firstRound = true
+    var currentTheme = UserDefaults().integer(forKey: "THEMENUMBER")
+    var themeArray: [UIImage] = Constants.originalTheme
     
     var bg = SKSpriteNode()
     
@@ -46,6 +48,10 @@ class TrumpRunScene: SKScene, SKPhysicsContactDelegate {
     var creationRateVariable: CGFloat = -2.0
     
     override func sceneDidLoad() {
+        
+        if currentTheme == 1 {
+            themeArray = Constants.grntTheme
+        }
         
         let pauseTexture = SKTexture(image: #imageLiteral(resourceName: "pause_button"))
         pauseNode = SKSpriteNode(texture: pauseTexture )
@@ -234,6 +240,7 @@ class TrumpRunScene: SKScene, SKPhysicsContactDelegate {
             if gameOver == false {
             if contact.bodyA.categoryBitMask == ColliderType.Gap.rawValue || contact.bodyB.categoryBitMask == ColliderType.Gap.rawValue {
                 
+                playPointSound()
                 score += 1
                 scoreLabel.text = String(score)
                 if(speedVariable2 < 760) {
@@ -248,21 +255,22 @@ class TrumpRunScene: SKScene, SKPhysicsContactDelegate {
             } else if contact.bodyA.categoryBitMask == ColliderType.Ground.rawValue || contact.bodyB.categoryBitMask == ColliderType.Ground.rawValue {
                 jumpCounter = 0
                 trump.removeAllActions()
-                let trumpTexture1 = SKTexture(imageNamed: "trump_running4.png")
-                let trumpTexture2 = SKTexture(imageNamed: "trump_running5.png")
-                let trumpTexture3 = SKTexture(imageNamed: "trump_running6.png")
-                let trumpTexture4 = SKTexture(imageNamed: "trump_running7.png")
+                let trumpTexture1 = SKTexture(image: themeArray[0])
+                let trumpTexture2 = SKTexture(image: themeArray[1])
+                let trumpTexture3 = SKTexture(image: themeArray[2])
+                let trumpTexture4 = SKTexture(image: themeArray[3])
 
                 let animation = SKAction.animate(with: [trumpTexture1, trumpTexture2, trumpTexture3, trumpTexture4], timePerFrame: 0.1)
                 let maketrumpRun = SKAction.repeatForever(animation)
                 trump.size = CGSize(width: 120, height: trump.frame.height)
                 trump.run(maketrumpRun)
             } else {
-                if score > highScore {
-                    playHighScoreSound()
-                } else {
+//                if score > highScore {
+//                    playHighScoreSound()
+//                } else {
                     playDeathSound()
-                }
+//                    playFallingSound()
+//                }
                 self.speed = 0
                 jumpCounter = 0
                 speedVariable1 = 100.0
@@ -276,7 +284,11 @@ class TrumpRunScene: SKScene, SKPhysicsContactDelegate {
                 saveHighScore()
                 
                 highScoreLabel.fontSize = 36
-                highScoreLabel.text = "HIGHSCORE: \(String(highScore))"
+                if score > highScore {
+                    highScoreLabel.text = "NEW HIGHSCORE: \(String(highScore))"
+                } else {
+                    highScoreLabel.text = "HIGHSCORE: \(String(highScore))"
+                }
                 highScoreLabel.position = CGPoint(x: self.frame.midX, y: self.frame.midY + 60)
                 highScoreLabel.fontColor = UIColor.white
                 self.insertChild(highScoreLabel, at: self.children.count - 1)
@@ -371,9 +383,13 @@ class TrumpRunScene: SKScene, SKPhysicsContactDelegate {
                 if jumpCounter < 5 {
                     trump.physicsBody?.isDynamic = true
                     trump.physicsBody!.velocity = CGVector(dx: 0, dy: 0)
-                    trump.physicsBody!.applyImpulse(CGVector(dx: 0, dy: 80))
+                    if currentTheme == 1 {
+                        trump.physicsBody!.applyImpulse(CGVector(dx: 0, dy: 50))
+                    } else {
+                        trump.physicsBody!.applyImpulse(CGVector(dx: 0, dy: 80))
+                    }
                     trump.removeAllActions()
-                    let trumpTexture = SKTexture(imageNamed: "trump_jump1.png")
+                    let trumpTexture = SKTexture(image: themeArray[4])
                     let animation = SKAction.animate(with: [trumpTexture], timePerFrame: 0.1)
                     let maketrumpJump = SKAction.repeatForever(animation)
                     trump.size = CGSize(width: 140, height: trump.frame.height)
@@ -482,11 +498,11 @@ class TrumpRunScene: SKScene, SKPhysicsContactDelegate {
         }
         
         
-        let trumpTexture1 = SKTexture(imageNamed: "trump_running4.png")
-        let trumpTexture2 = SKTexture(imageNamed: "trump_running5.png")
-        let trumpTexture3 = SKTexture(imageNamed: "trump_running6.png")
-        let trumpTexture4 = SKTexture(imageNamed: "trump_running7.png")
-        let animation = SKAction.animate(with: [trumpTexture1, trumpTexture2, trumpTexture3, trumpTexture4], timePerFrame: 0.3)
+        let trumpTexture1 = SKTexture(image: themeArray[0])
+        let trumpTexture2 = SKTexture(image: themeArray[1])
+        let trumpTexture3 = SKTexture(image: themeArray[2])
+        let trumpTexture4 = SKTexture(image: themeArray[3])
+        let animation = SKAction.animate(with: [trumpTexture1, trumpTexture2, trumpTexture3, trumpTexture4], timePerFrame: 0.1)
         let maketrumpRun = SKAction.repeatForever(animation)
         
         trump = SKSpriteNode(texture: trumpTexture1)
@@ -566,23 +582,30 @@ class TrumpRunScene: SKScene, SKPhysicsContactDelegate {
         }
     }
     
+    func playPointSound()  {
+        var soundURL: NSURL?
+        var soundID:SystemSoundID = 0
+        let filePath = Bundle.main.path(forResource: "retro_point", ofType: "mp3")
+        soundURL = NSURL(fileURLWithPath: filePath!)
+        AudioServicesCreateSystemSoundID(soundURL!, &soundID)
+        AudioServicesPlaySystemSound(soundID)
+    }
+    
     func playDeathSound()  {
         var soundURL: NSURL?
         var soundID:SystemSoundID = 0
-        let filePath = Bundle.main.path(forResource: "You're Fired", ofType: "wav")
-        let filePath2 = Bundle.main.path(forResource: "China", ofType: "mp3")
-        let filePath3 = Bundle.main.path(forResource: "You're Finished", ofType: "wav")
-
-        let randomNumber = arc4random_uniform(3)
-        
-        if randomNumber == 0 {
-            soundURL = NSURL(fileURLWithPath: filePath!)
-        } else if randomNumber == 1 {
-            soundURL = NSURL(fileURLWithPath: filePath2!)
-        } else {
-            soundURL = NSURL(fileURLWithPath: filePath3!)
-        }
-
+        let filePath = Bundle.main.path(forResource: "hit_wall", ofType: "mp3")
+        soundURL = NSURL(fileURLWithPath: filePath!)
+        AudioServicesCreateSystemSoundID(soundURL!, &soundID)
+        AudioServicesPlaySystemSound(soundID)
+    }
+    
+    
+    func playFallingSound()  {
+        var soundURL: NSURL?
+        var soundID:SystemSoundID = 0
+        let filePath = Bundle.main.path(forResource: "falling", ofType: "mp3")
+        soundURL = NSURL(fileURLWithPath: filePath!)
         AudioServicesCreateSystemSoundID(soundURL!, &soundID)
         AudioServicesPlaySystemSound(soundID)
     }
@@ -592,16 +615,13 @@ class TrumpRunScene: SKScene, SKPhysicsContactDelegate {
         var soundID:SystemSoundID = 0
         let filePath = Bundle.main.path(forResource: "America Great", ofType: "wav")
         let filePath2 = Bundle.main.path(forResource: "Greatest President", ofType: "wav")
-        let filePath3 = Bundle.main.path(forResource: "mexico_pays2", ofType: "wav")
-
-        let randomNumber = arc4random_uniform(3)
+      
+        let randomNumber = arc4random_uniform(2)
         
         if randomNumber == 0 {
             soundURL = NSURL(fileURLWithPath: filePath!)
         } else if randomNumber == 1 {
             soundURL = NSURL(fileURLWithPath: filePath2!)
-        } else {
-            soundURL = NSURL(fileURLWithPath: filePath3!)
         }
         
         AudioServicesCreateSystemSoundID(soundURL!, &soundID)
@@ -612,17 +632,14 @@ class TrumpRunScene: SKScene, SKPhysicsContactDelegate {
         var soundURL: NSURL?
         var soundID:SystemSoundID = 0
         let filePath = Bundle.main.path(forResource: "congratulations", ofType: "mp3")
-        let filePath2 = Bundle.main.path(forResource: "Mexico Pays", ofType: "wav")
-        let filePath3 = Bundle.main.path(forResource: "Bored Winning", ofType: "wav")
+        let filePath2 = Bundle.main.path(forResource: "Bored Winning", ofType: "wav")
         
-        let randomNumber = arc4random_uniform(3)
+        let randomNumber = arc4random_uniform(2)
         
         if randomNumber == 0 {
             soundURL = NSURL(fileURLWithPath: filePath!)
         } else if randomNumber == 1 {
             soundURL = NSURL(fileURLWithPath: filePath2!)
-        } else {
-            soundURL = NSURL(fileURLWithPath: filePath3!)
         }
 
         AudioServicesCreateSystemSoundID(soundURL!, &soundID)

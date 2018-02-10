@@ -46,6 +46,11 @@ class GameViewController: BaseViewController, GKGameCenterControllerDelegate {
             settingsViewController.modalPresentationStyle = UIModalPresentationStyle.overCurrentContext
             self.navigationController?.present(settingsViewController, animated: true, completion: nil)
             break
+        case 4:
+            let themesViewController = UIStoryboard.viewControllerMain(identifier: "themesViewController") as! ThemesViewController
+            themesViewController.modalPresentationStyle = UIModalPresentationStyle.overCurrentContext
+            self.navigationController?.present(themesViewController, animated: true, completion: nil)
+            break
         default:
             break
         }

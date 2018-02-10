@@ -8,6 +8,7 @@
 
 import UIKit
 import GoogleMobileAds
+import Firebase
 
 extension UIStoryboard {
     
@@ -30,6 +31,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Initialize the Google Mobile Ads SDK.
         // Sample AdMob app ID: ca-app-pub-3940256099942544~1458002511
         GADMobileAds.configure(withApplicationID: Constants.adMobsAppID)
+        FirebaseApp.configure()
 
         return true
     }
