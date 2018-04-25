@@ -21,6 +21,13 @@
 		9D05FCCF202EB5A1006E444C /* ThemesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D05FCCE202EB5A1006E444C /* ThemesViewController.swift */; };
 		9D05FCD2202EB909006E444C /* ThemesTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D05FCD0202EB909006E444C /* ThemesTableViewCell.swift */; };
 		9D05FCD3202EB909006E444C /* ThemesTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9D05FCD1202EB909006E444C /* ThemesTableViewCell.xib */; };
+		9D837F192076BB14007B76F8 /* TutorialViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D837F182076BB14007B76F8 /* TutorialViewController.swift */; };
+		9D837F1B2076BB83007B76F8 /* TutorialSlide.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D837F1A2076BB83007B76F8 /* TutorialSlide.swift */; };
+		9D837F1E2076BB98007B76F8 /* Slide1.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9D837F1D2076BB98007B76F8 /* Slide1.xib */; };
+		9D837F202076BBA1007B76F8 /* Slide2.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9D837F1F2076BBA1007B76F8 /* Slide2.xib */; };
+		9D837F222076BBAA007B76F8 /* Slide3.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9D837F212076BBAA007B76F8 /* Slide3.xib */; };
+		9D837F242076CB25007B76F8 /* TutorialScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D837F232076CB25007B76F8 /* TutorialScene.swift */; };
+		9D837F262076CB63007B76F8 /* TutorialScene.sks in Resources */ = {isa = PBXBuildFile; fileRef = 9D837F252076CB63007B76F8 /* TutorialScene.sks */; };
 		9DB4859A20266E8B00B497F2 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DB4859920266E8B00B497F2 /* AppDelegate.swift */; };
 		9DB4859C20266E8B00B497F2 /* GameScene.sks in Resources */ = {isa = PBXBuildFile; fileRef = 9DB4859B20266E8B00B497F2 /* GameScene.sks */; };
 		9DB4859E20266E8B00B497F2 /* Actions.sks in Resources */ = {isa = PBXBuildFile; fileRef = 9DB4859D20266E8B00B497F2 /* Actions.sks */; };
@@ -103,6 +110,13 @@
 		9D05FCCE202EB5A1006E444C /* ThemesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThemesViewController.swift; sourceTree = "<group>"; };
 		9D05FCD0202EB909006E444C /* ThemesTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThemesTableViewCell.swift; sourceTree = "<group>"; };
 		9D05FCD1202EB909006E444C /* ThemesTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ThemesTableViewCell.xib; sourceTree = "<group>"; };
+		9D837F182076BB14007B76F8 /* TutorialViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TutorialViewController.swift; sourceTree = "<group>"; };
+		9D837F1A2076BB83007B76F8 /* TutorialSlide.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = TutorialSlide.swift; path = "/Users/PeroniF5/XCode Projects/TrumpRunIOS/TrumpRunIOS/TrumpRush Play/Tutorial/Tutorial Slides/TutorialSlide.swift"; sourceTree = "<absolute>"; };
+		9D837F1D2076BB98007B76F8 /* Slide1.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = Slide1.xib; sourceTree = "<group>"; };
+		9D837F1F2076BBA1007B76F8 /* Slide2.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = Slide2.xib; sourceTree = "<group>"; };
+		9D837F212076BBAA007B76F8 /* Slide3.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = Slide3.xib; sourceTree = "<group>"; };
+		9D837F232076CB25007B76F8 /* TutorialScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TutorialScene.swift; sourceTree = "<group>"; };
+		9D837F252076CB63007B76F8 /* TutorialScene.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = TutorialScene.sks; sourceTree = "<group>"; };
 		9DB4859620266E8B00B497F2 /* TrumpRunIOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TrumpRunIOS.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9DB4859920266E8B00B497F2 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		9DB4859B20266E8B00B497F2 /* GameScene.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = GameScene.sks; sourceTree = "<group>"; };
@@ -193,6 +207,28 @@
 				9D05FCCA202E90F8006E444C /* retro_point.mp3 */,
 			);
 			path = "Point Sounds";
+			sourceTree = "<group>";
+		};
+		9D837F172076BA70007B76F8 /* Tutorial */ = {
+			isa = PBXGroup;
+			children = (
+				9D837F1C2076BB86007B76F8 /* Tutorial Slides */,
+				9D837F182076BB14007B76F8 /* TutorialViewController.swift */,
+				9D837F232076CB25007B76F8 /* TutorialScene.swift */,
+				9D837F252076CB63007B76F8 /* TutorialScene.sks */,
+			);
+			path = Tutorial;
+			sourceTree = "<group>";
+		};
+		9D837F1C2076BB86007B76F8 /* Tutorial Slides */ = {
+			isa = PBXGroup;
+			children = (
+				9D837F1A2076BB83007B76F8 /* TutorialSlide.swift */,
+				9D837F1D2076BB98007B76F8 /* Slide1.xib */,
+				9D837F1F2076BBA1007B76F8 /* Slide2.xib */,
+				9D837F212076BBAA007B76F8 /* Slide3.xib */,
+			);
+			path = "Tutorial Slides";
 			sourceTree = "<group>";
 		};
 		9DB4858D20266E8B00B497F2 = {
@@ -336,6 +372,7 @@
 		9DB486212027283300B497F2 /* TrumpRush Play */ = {
 			isa = PBXGroup;
 			children = (
+				9D837F172076BA70007B76F8 /* Tutorial */,
 				9DB485FA2026729600B497F2 /* TrumpRunViewController.swift */,
 				9DB485CD20266FC500B497F2 /* TrumpRunScene.swift */,
 				9DB486002026809800B497F2 /* TrumpRunScene.sks */,
@@ -530,11 +567,14 @@
 				9DB485F02026707900B497F2 /* OFL.txt in Resources */,
 				9D05FCCB202E90F9006E444C /* retro_point.mp3 in Resources */,
 				9DB485E82026707900B497F2 /* Raleway-SemiBold.ttf in Resources */,
+				9D837F262076CB63007B76F8 /* TutorialScene.sks in Resources */,
+				9D837F202076BBA1007B76F8 /* Slide2.xib in Resources */,
 				9DB485F92026707900B497F2 /* museosans-100.ttf in Resources */,
 				9DB485F72026707900B497F2 /* museosans-300.ttf in Resources */,
 				9DB485E92026707900B497F2 /* museosans-900.ttf in Resources */,
 				9DB4860C20271B5700B497F2 /* I'm really rich.mp3 in Resources */,
 				9DB485FF2026787600B497F2 /* PhosphateInline.ttf in Resources */,
+				9D837F1E2076BB98007B76F8 /* Slide1.xib in Resources */,
 				9DB485EE2026707900B497F2 /* zerovelo.ttf in Resources */,
 				9DB485A520266E8B00B497F2 /* Main.storyboard in Resources */,
 				9D05FCC6202E4E4F006E444C /* GoogleService-Info.plist in Resources */,
@@ -555,6 +595,7 @@
 				9DB485AA20266E8B00B497F2 /* LaunchScreen.storyboard in Resources */,
 				9DB485EB2026707900B497F2 /* MuseoSans-900.otf in Resources */,
 				9DB4861820271D8300B497F2 /* Rich_2.wav in Resources */,
+				9D837F222076BBAA007B76F8 /* Slide3.xib in Resources */,
 				9DB485F52026707900B497F2 /* 6809-chargen.ttf in Resources */,
 				9DB485E62026707900B497F2 /* Raleway-ExtraLight.ttf in Resources */,
 				9DB4861220271D6D00B497F2 /* Bored Winning.wav in Resources */,
@@ -744,8 +785,11 @@
 				9D05FCD2202EB909006E444C /* ThemesTableViewCell.swift in Sources */,
 				9DB485FB2026729600B497F2 /* TrumpRunViewController.swift in Sources */,
 				9DB485A020266E8B00B497F2 /* GameScene.swift in Sources */,
+				9D837F242076CB25007B76F8 /* TutorialScene.swift in Sources */,
 				9DE9DA54202AA7F300B312A6 /* SettingsViewController.swift in Sources */,
 				1B38B18E2026995D00319038 /* trump+gif.swift in Sources */,
+				9D837F192076BB14007B76F8 /* TutorialViewController.swift in Sources */,
+				9D837F1B2076BB83007B76F8 /* TutorialSlide.swift in Sources */,
 				9DB485CE20266FC600B497F2 /* TrumpRunScene.swift in Sources */,
 				9DB485A220266E8B00B497F2 /* GameViewController.swift in Sources */,
 				9DB4859A20266E8B00B497F2 /* AppDelegate.swift in Sources */,

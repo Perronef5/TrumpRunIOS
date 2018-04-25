@@ -25,10 +25,10 @@ class ThemesViewController: UIViewController {
             }
             break
         case 1:
-            setTheme(themeNumber: 0)
+            setTheme(themeNumber: 1)
             break
         case 2:
-            setTheme(themeNumber: 1)
+            setTheme(themeNumber: 0)
             break
         default:
             break
@@ -59,15 +59,15 @@ class ThemesViewController: UIViewController {
         self.view.sendSubview(toBack: blurEffectView)
         
         if currentTheme == 1 {
-            grntThemeView.alpha = 0.2
-            originalThemeView.alpha = 0.0
+            grntThemeView.alpha = 0.0
+            originalThemeView.alpha = 0.2
         }
     }
 
     func setTheme(themeNumber: Int) {
         UserDefaults.standard.set(themeNumber, forKey: "THEMENUMBER")
         
-        if themeNumber == 0 {
+        if themeNumber == 1 {
             originalThemeView.alpha = 0.2
             grntThemeView.alpha = 0.0
         } else {

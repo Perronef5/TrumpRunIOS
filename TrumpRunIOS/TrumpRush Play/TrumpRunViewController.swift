@@ -13,10 +13,13 @@ import GoogleMobileAds
 
 class TrumpRunViewController: UIViewController {
     @IBOutlet weak var adMobBannerView: GADBannerView!
-    
+
     override func viewDidLoad() {
         super.viewDidLoad()
         prepare()
+        
+
+        
 
         if let view = self.view as! SKView? {
             // Load the SKScene from 'GameScene.sks'
@@ -33,6 +36,9 @@ class TrumpRunViewController: UIViewController {
 //            view.showsFPS = true
 //            view.showsNodeCount = true
         }
+        
+
+        
         
     }
     

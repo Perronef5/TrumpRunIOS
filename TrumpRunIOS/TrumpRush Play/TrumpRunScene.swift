@@ -27,7 +27,11 @@ class TrumpRunScene: SKScene, SKPhysicsContactDelegate {
     var highScore = UserDefaults().integer(forKey: "HIGHSCORE")
     var firstRound = true
     var currentTheme = UserDefaults().integer(forKey: "THEMENUMBER")
-    var themeArray: [UIImage] = Constants.originalTheme
+    var themeArray: [UIImage] = Constants.grntTheme
+    var trumpOGSize: CGSize!
+    var jumpCounterButtons: [SKSpriteNode] = []
+    var firstTimerPassed = false
+    var firstTimerCounter = 0
     
     var bg = SKSpriteNode()
     
@@ -50,7 +54,7 @@ class TrumpRunScene: SKScene, SKPhysicsContactDelegate {
     override func sceneDidLoad() {
         
         if currentTheme == 1 {
-            themeArray = Constants.grntTheme
+            themeArray = Constants.originalTheme
         }
         
         let pauseTexture = SKTexture(image: #imageLiteral(resourceName: "pause_button"))
@@ -113,9 +117,9 @@ class TrumpRunScene: SKScene, SKPhysicsContactDelegate {
             let removewalls = SKAction.removeFromParent()
             let moveAndRemovewalls = SKAction.sequence([movewalls, removewalls])
             
-            let moveKims = SKAction.move(by: CGVector(dx: creationRateVariable * self.frame.width, dy: 0), duration: TimeInterval(self.frame.width / (tempSpeedVariable2 + 100)))
-            let removeKims = SKAction.removeFromParent()
-            let moveAndRemoveKims = SKAction.sequence([moveKims, removeKims])
+            let movemissiles = SKAction.move(by: CGVector(dx: creationRateVariable * self.frame.width, dy: 0), duration: TimeInterval(self.frame.width / (tempSpeedVariable2 + 100)))
+            let removemissiles = SKAction.removeFromParent()
+            let moveAndRemovemissiles = SKAction.sequence([movemissiles, removemissiles])
             
             
             
@@ -127,7 +131,7 @@ class TrumpRunScene: SKScene, SKPhysicsContactDelegate {
             
     //        let wallTexture = SKTexture(imageNamed: "wall_wall.png")
             var wallTexture = SKTexture()
-            let kimTexture = SKTexture(imageNamed: "kim_rocket.png")
+            let missileTexture = SKTexture(imageNamed: "Trump_Missile.png")
 
             if score >= 15 && score < 30 {
                 if score == 15 {
@@ -135,37 +139,37 @@ class TrumpRunScene: SKScene, SKPhysicsContactDelegate {
                 }
                 let randomNumber = arc4random_uniform(4)
                 if randomNumber > 0 {
-                    wallTexture = SKTexture(imageNamed: "brick_wall_wspikes.png")
+                    wallTexture = SKTexture(imageNamed: "space_wall.png")
                 } else {
-                    wallTexture = SKTexture(imageNamed: "brick_wall.png")
+                    wallTexture = SKTexture(imageNamed: "space_wall.png")
                 }
             } else if score >= 30 && score < 45 {
                 if score == 30 {
                 playNewStageSound()
                 }
-                wallTexture = SKTexture(imageNamed: "cactus.png")
+                wallTexture = SKTexture(imageNamed: "space_wall.png")
 
             } else if score >= 45 && score < 60 {
                 if score == 45 {
                 playNewStageSound()
                 }
-                wallTexture = SKTexture(imageNamed: "fence_wall.png")
+                wallTexture = SKTexture(imageNamed: "space_wall.png")
             } else if score >= 60 {
                 if score == 60 {
                 play60MarkSound()
                 }
-                wallTexture = SKTexture(imageNamed: "trump_wall.png")
+                wallTexture = SKTexture(imageNamed: "space_wall.png")
             } else {
-                wallTexture = SKTexture(imageNamed: "brick_wall.png")
+                wallTexture = SKTexture(imageNamed: "space_wall.png")
             }
             
             let wall2 = SKSpriteNode(texture: wallTexture)
-            let kimRocket = SKSpriteNode(texture: kimTexture)
+            let missileRocket = SKSpriteNode(texture: missileTexture)
             
     //        let gapHeight = trump.size.height
             
             
-            wall2.position = CGPoint(x: self.frame.midX + self.frame.width, y: self.frame.midY - (wallTexture.size().height / 1.5) + wallOffset)
+            wall2.position = CGPoint(x: self.frame.midX + self.frame.width, y: self.frame.midY - (wallTexture.size().height / 1.8) + wallOffset)
             
             wall2.run(moveAndRemovewalls)
             
@@ -181,10 +185,10 @@ class TrumpRunScene: SKScene, SKPhysicsContactDelegate {
             self.addChild(wall2)
     //        wall2.zPosition = 0.0
 
-            let gap = SKSpriteNode.init(color: UIColor.clear, size: CGSize(width: wallTexture.size().width, height: wallTexture.size().height))
-    //        gap.color = UIColor.green
+            let gap = SKSpriteNode.init(color: UIColor.clear, size: CGSize(width: wallTexture.size().width - 200, height: wallTexture.size().height))
+//            gap.color = UIColor.green
             
-            gap.position = CGPoint(x: self.frame.midX + self.frame.width, y: self.frame.midY + wallOffset)
+            gap.position = CGPoint(x: self.frame.midX + self.frame.width + 100, y: self.frame.midY + wallOffset)
             
             gap.physicsBody = SKPhysicsBody(rectangleOf: CGSize(width: wall2.size.width, height: wallTexture.size().height))
             print(wallOffset)
@@ -215,20 +219,22 @@ class TrumpRunScene: SKScene, SKPhysicsContactDelegate {
             let randomNumber2 = arc4random_uniform(UInt32(randomNumberAmount))
             
             if randomNumber2 == 0 {
-                kimRocket.position = CGPoint(x: self.frame.midX - 150 + self.frame.width, y: self.frame.midY - (wallTexture.size().height / 1.5) + wallOffset + (gap.frame.height/1.3))
+                missileRocket.position = CGPoint(x: self.frame.midX - 150 + self.frame.width, y: self.frame.midY - (wallTexture.size().height / 1.5) + wallOffset + (gap.frame.height/1.3))
                 
-                kimRocket.run(moveAndRemoveKims)
+                missileRocket.run(moveAndRemovemissiles)
                 
-                kimRocket.physicsBody = SKPhysicsBody(rectangleOf: kimTexture.size())
+                missileRocket.physicsBody = SKPhysicsBody(rectangleOf: missileTexture.size())
                 
-                kimRocket.physicsBody!.isDynamic = false
+                missileRocket.physicsBody!.isDynamic = false
                 
-                kimRocket.physicsBody!.contactTestBitMask = ColliderType.Trump.rawValue
-                kimRocket.physicsBody!.categoryBitMask = ColliderType.Object.rawValue
-                kimRocket.physicsBody!.collisionBitMask = ColliderType.Object.rawValue
+                missileRocket.physicsBody!.contactTestBitMask = ColliderType.Trump.rawValue
+                missileRocket.physicsBody!.categoryBitMask = ColliderType.Object.rawValue
+                missileRocket.physicsBody!.collisionBitMask = ColliderType.Object.rawValue
                 
-                self.addChild(kimRocket)
+                self.addChild(missileRocket)
             }
+            
+            firstTimerPassed = true
             
             }
         
@@ -254,15 +260,18 @@ class TrumpRunScene: SKScene, SKPhysicsContactDelegate {
                 
             } else if contact.bodyA.categoryBitMask == ColliderType.Ground.rawValue || contact.bodyB.categoryBitMask == ColliderType.Ground.rawValue {
                 jumpCounter = 0
+                for i in 0...4 {
+                    jumpCounterButtons[i].alpha = 1.0
+                }
                 trump.removeAllActions()
                 let trumpTexture1 = SKTexture(image: themeArray[0])
                 let trumpTexture2 = SKTexture(image: themeArray[1])
                 let trumpTexture3 = SKTexture(image: themeArray[2])
                 let trumpTexture4 = SKTexture(image: themeArray[3])
 
-                let animation = SKAction.animate(with: [trumpTexture1, trumpTexture2, trumpTexture3, trumpTexture4], timePerFrame: 0.1)
+                let animation = SKAction.animate(with: [trumpTexture1, trumpTexture2, trumpTexture3], timePerFrame: 0.1)
                 let maketrumpRun = SKAction.repeatForever(animation)
-                trump.size = CGSize(width: 120, height: trump.frame.height)
+                trump.size = trumpOGSize
                 trump.run(maketrumpRun)
             } else {
 //                if score > highScore {
@@ -273,6 +282,9 @@ class TrumpRunScene: SKScene, SKPhysicsContactDelegate {
 //                }
                 self.speed = 0
                 jumpCounter = 0
+                for i in 0...4 {
+                    jumpCounterButtons[i].alpha = 1.0
+                }
                 speedVariable1 = 100.0
                 speedVariable2 = 120.0
                 speedVariable3 = 80.0
@@ -354,6 +366,12 @@ class TrumpRunScene: SKScene, SKPhysicsContactDelegate {
                 removePauseScreen()
                 gameOver = false
                 saveHighScore()
+                timer.invalidate()
+                speedVariable1 = 100.0
+                speedVariable2 = 120.0
+                speedVariable3 = 80.0
+                speedVariable4 = 60.0
+                creationRateVariable = -2.0
                 score = 0
                 self.children.filter { $0.name != "pauseButton" }.forEach { $0.removeFromParent() }
                 setupGame()
@@ -374,8 +392,13 @@ class TrumpRunScene: SKScene, SKPhysicsContactDelegate {
         if pauseButtonTouched == false && resumeClicked == false {
             
             if gameStarted == false {
-                timer = Timer.scheduledTimer(timeInterval: 3, target: self, selector: #selector(self.makewalls), userInfo: nil, repeats: true)
+                timer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(self.makewalls), userInfo: nil, repeats: false)
                 gameStarted = true
+            }
+            
+            if firstTimerPassed && firstTimerCounter == 0 {
+                timer = Timer.scheduledTimer(timeInterval: 4, target: self, selector: #selector(self.makewalls), userInfo: nil, repeats: true)
+                firstTimerCounter = 1
             }
         
             if gameOver == false {
@@ -383,17 +406,26 @@ class TrumpRunScene: SKScene, SKPhysicsContactDelegate {
                 if jumpCounter < 5 {
                     trump.physicsBody?.isDynamic = true
                     trump.physicsBody!.velocity = CGVector(dx: 0, dy: 0)
-                    if currentTheme == 1 {
+                    if currentTheme == 0 {
                         trump.physicsBody!.applyImpulse(CGVector(dx: 0, dy: 50))
                     } else {
-                        trump.physicsBody!.applyImpulse(CGVector(dx: 0, dy: 80))
+                        trump.physicsBody!.applyImpulse(CGVector(dx: 0, dy: 70))
                     }
                     trump.removeAllActions()
                     let trumpTexture = SKTexture(image: themeArray[4])
                     let animation = SKAction.animate(with: [trumpTexture], timePerFrame: 0.1)
                     let maketrumpJump = SKAction.repeatForever(animation)
-                    trump.size = CGSize(width: 140, height: trump.frame.height)
+                    
+                    let scale = 100 / trumpTexture.size().width
+                    let newHeight = trumpTexture.size().height * scale
+                    
+                    if currentTheme == 0 {
+                        trump.size = CGSize(width: 100, height: newHeight)
+                    } else {
+                        trump.size = CGSize(width: 140, height: trump.size.height)
+                    }
                     trump.run(maketrumpJump)
+                    jumpCounterButtons[(4 - jumpCounter)].alpha = 0.3
                     jumpCounter += 1
                 }
                 
@@ -472,21 +504,30 @@ class TrumpRunScene: SKScene, SKPhysicsContactDelegate {
     }
     
     func setupGame() {
-        let bgTexture = SKTexture(imageNamed: "desert_BG.png")
         
-        let moveBGAnimation = SKAction.move(by: CGVector(dx: -bgTexture.size().width, dy: 0), duration: 7)
-        let shiftBGAnimation = SKAction.move(by: CGVector(dx: bgTexture.size().width, dy: 0), duration: 0)
+        firstTimerCounter = 0
+
+        let bgTexture = SKTexture(imageNamed: "trump_space.png")
+        let scale = self.frame.height / bgTexture.size().height
+        let newWidth = bgTexture.size().width * scale
+        
+        let moveBGAnimation = SKAction.move(by: CGVector(dx: -newWidth, dy: 0), duration: 60)
+        let shiftBGAnimation = SKAction.move(by: CGVector(dx: newWidth, dy: 0), duration: 0)
         let moveBGForever = SKAction.repeatForever(SKAction.sequence([moveBGAnimation, shiftBGAnimation]))
         
         var i: CGFloat = 0
+        
+ 
         
         while i < 3 {
             
             bg = SKSpriteNode(texture: bgTexture)
             
-            bg.position = CGPoint(x: bgTexture.size().width * i, y: self.frame.midY)
+            bg.position = CGPoint(x: newWidth * i, y: self.frame.midY)
             
             bg.size.height = self.frame.height
+            bg.size.width = newWidth
+
             
             bg.run(moveBGForever)
             
@@ -502,15 +543,16 @@ class TrumpRunScene: SKScene, SKPhysicsContactDelegate {
         let trumpTexture2 = SKTexture(image: themeArray[1])
         let trumpTexture3 = SKTexture(image: themeArray[2])
         let trumpTexture4 = SKTexture(image: themeArray[3])
-        let animation = SKAction.animate(with: [trumpTexture1, trumpTexture2, trumpTexture3, trumpTexture4], timePerFrame: 0.1)
+        let animation = SKAction.animate(with: [trumpTexture1, trumpTexture2, trumpTexture3], timePerFrame: 0.1)
         let maketrumpRun = SKAction.repeatForever(animation)
         
         trump = SKSpriteNode(texture: trumpTexture1)
         
-        trump.position = CGPoint(x: self.frame.midX, y: -self.frame.height / 3.5)
+        trump.position = CGPoint(x: self.frame.midX - 100, y: -self.frame.height / 3.5)
         
         trump.size = CGSize(width: 120, height: trump.frame.height)
         trump.run(maketrumpRun)
+        trumpOGSize = trump.size
         
         trump.physicsBody = SKPhysicsBody(circleOfRadius: trumpTexture1.size().height / 8)
         
@@ -530,7 +572,7 @@ class TrumpRunScene: SKScene, SKPhysicsContactDelegate {
         
         let ground = SKSpriteNode()
         ground.color = UIColor.red
-        ground.physicsBody = SKPhysicsBody(edgeLoopFrom: CGRect(x: 0, y: 0, width: self.frame.width, height: 10))
+        ground.physicsBody = SKPhysicsBody(edgeLoopFrom: CGRect(x: -self.frame.width/2, y: 0, width: self.frame.width, height: 10))
         ground.physicsBody?.categoryBitMask = ColliderType.Ground.rawValue
         
         ground.position = CGPoint(x: 0, y: (-self.frame.height / 3.5) - 40)
@@ -550,11 +592,22 @@ class TrumpRunScene: SKScene, SKPhysicsContactDelegate {
         
         self.addChild(ground)
         
+        var widthAcum: CGFloat = 40
+        
+        for i in 0...4 {
+            jumpCounterButtons.insert(SKSpriteNode(texture: SKTexture(image: #imageLiteral(resourceName: "jumpCircle")), size: CGSize(width: 40, height: 40)), at: i)
+            jumpCounterButtons[i].position = CGPoint(x: (self.frame.width/2) - widthAcum, y: (self.frame.height/2) - 80)
+            
+            self.addChild(jumpCounterButtons[i])
+            widthAcum+=60
+        }
+        
+        
         //        scoreLabel.fontName = "6809-chargen"
         scoreLabel.fontSize = 100
         scoreLabel.text = "0"
         scoreLabel.position = CGPoint(x: self.frame.midX, y: self.frame.height / 2 - 200)
-        scoreLabel.fontColor = UIColor.black
+        scoreLabel.fontColor = UIColor.white
         self.addChild(scoreLabel)
         
         if firstRound == true {

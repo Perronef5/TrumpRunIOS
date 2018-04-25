@@ -22,6 +22,7 @@ class GameViewController: BaseViewController, GKGameCenterControllerDelegate {
     @IBOutlet weak var helpView: UIView!
     @IBOutlet weak var highscoreLabel: UILabel!
     @IBOutlet weak var leaderBoardButton: UIButton!
+    var firstTimePlaying = UserDefaults().integer(forKey: "FIRSTTIME")
     var currentScore = 0
     
     var highScore = UserDefaults().integer(forKey: "HIGHSCORE")
@@ -78,6 +79,14 @@ class GameViewController: BaseViewController, GKGameCenterControllerDelegate {
             
 //            view.showsFPS = true
 //            view.showsNodeCount = true
+        }
+        
+        if firstTimePlaying == 0 {
+            let tutorialViewController = UIStoryboard.viewControllerMain(identifier: "tutorialViewController") as! TutorialViewController
+            //            tutorialViewController.modalPresentationStyle = UIModalPresentationStyle.overCurrentContext
+            self.present(tutorialViewController, animated: true, completion: nil)
+            UserDefaults.standard.set(1, forKey: "FIRSTTIME")
+            print("IM HERE!")
         }
         
         prepare()

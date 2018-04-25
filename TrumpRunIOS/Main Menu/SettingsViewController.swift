@@ -28,6 +28,9 @@ class SettingsViewController: BaseViewController {
             UserDefaults.standard.set(0, forKey: "HIGHSCORE")
             break
         default:
+            let tutorialViewController = UIStoryboard.viewControllerMain(identifier: "tutorialViewController") as! TutorialViewController
+            tutorialViewController.modalPresentationStyle = UIModalPresentationStyle.overCurrentContext
+            self.present(tutorialViewController, animated: true, completion: nil)
             break
             
             

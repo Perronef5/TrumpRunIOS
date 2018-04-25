@@ -17,11 +17,17 @@ class GameScene: SKScene {
     
     
     override func sceneDidLoad() {
-        let bgTexture = SKTexture(imageNamed: "desert_BG.png")
+        let bgTexture = SKTexture(imageNamed: "space_main_menu_bg.png")
         bg = SKSpriteNode(texture: bgTexture)
+        
+        let scale = self.frame.height / bgTexture.size().height
+        let newWidth = bgTexture.size().width * scale
+        
 //        bg.position = CGPoint(x: bgTexture.size().width, y: self.frame.midY)
         bg.size.height = self.frame.height
-        
+        bg.size.width = newWidth
+//        bg.position = CGPoint(x: newWidth, y: self.frame.midY)
+
         let effectsNode = SKEffectNode()
         let filter = CIFilter(name: "CIGaussianBlur")
         // Set the blur amount. Adjust this to achieve the desired effect
